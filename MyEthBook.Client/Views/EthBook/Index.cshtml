@@ -1,0 +1,15 @@
+﻿@model MyEthBook.Client.Models.EthBookViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My EthBook</h2>
+<h3>@Model</h3>
+<h3>@Model.ContactAddresses[0].Name</h3>
+<h3>@Model.ContactAddresses[0].Address</h3>
+
+@foreach (var ca in Model.ContactAddresses)
+{
+    <p>@ca.Name -  @ca.Address</p>
+}
+

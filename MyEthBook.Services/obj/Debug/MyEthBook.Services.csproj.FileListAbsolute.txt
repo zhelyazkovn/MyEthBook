@@ -1,0 +1,11 @@
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\bin\Debug\MyEthBook.Services.dll
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\bin\Debug\MyEthBook.Services.pdb
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\bin\Debug\Nethereum.Portable.dll
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\obj\Debug\MyEthBook.Services.csprojResolveAssemblyReference.cache
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\obj\Debug\MyEthBook.Services.csproj.CoreCompileInputs.cache
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\obj\Debug\MyEthBook.Services.dll
+C:\Users\User1\Documents\Visual Studio 2017\Projects\MyEthBook\MyEthBook.Services\obj\Debug\MyEthBook.Services.pdb
