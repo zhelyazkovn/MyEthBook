@@ -5,11 +5,57 @@
 
 <h2>My EthBook</h2>
 <h3>@Model</h3>
-<h3>@Model.ContactAddresses[0].Name</h3>
-<h3>@Model.ContactAddresses[0].Address</h3>
+
 
 @foreach (var ca in Model.ContactAddresses)
 {
     <p>@ca.Name -  @ca.Address</p>
 }
 
+    <p>
+        <input type="hidden" id="mmaddress" name="mmaddress" />
+        name:  <input type="text" name="name" id="name" />
+        adddress: <input type="text" name="address" id="address" />
+        <input type="submit" id="add-addr" />
+
+    </p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            if (typeof web3 == 'undefined') {
+                alert("Please Install MetaMask if you want to use the DApp.");
+            }
+            $("#mmaddress").val(web3.eth.accounts[0]);
+
+            var addr = web3.eth.accounts[0];
+            $("#mmaddress").val(addr);
+            console.log(addr);
+
+            $("#add-addr").on("click", function () {
+                const documentRegistryContractAddress = '0xdd6e8a55ef29b4a4dd9a0cf3259afbd0ef4c5755';
+                const documentRegistryContractABI = [{ "constant": true, "inputs": [], "name": "getTotalCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getMyBookCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "addr", "type": "address" }], "name": "getContact", "outputs": [{ "name": "", "type": "bytes32" }, { "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }, { "name": "", "type": "uint256" }], "name": "_ethBook", "outputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "addContact", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }, { "name": "amount", "type": "uint256" }], "name": "payPraize", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }];
+                let name = $("#name").val();
+                let address = $("#address").val();
+                console.log(name + " " + address);
+
+                let contract = web3.eth.contract(documentRegistryContractABI).at(documentRegistryContractAddress);
+                contract.addContact(name,addr, function (err, result, r1, r2, r3) {
+                    if (err) {
+                        console.log("ERROR");
+                    }
+                    console.log(err);
+                    console.log(result);
+                    console.log(r1);
+                    console.log(r2);
+                    console.log(r3);
+                    console.log("ADDED");
+                });
+            })
+
+        });
+    </script>
+}

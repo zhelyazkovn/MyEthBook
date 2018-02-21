@@ -23,12 +23,14 @@ namespace MyEthBook.Client.Controllers
             {
                 var user = UserManager.FindById(User.Identity.GetUserId());
 
-                myBookCount = Sync(contractService.GetMyBookCount("0xfb3d0b9d9ae0bfccf875688fbb7aaad4556eb371"));
-                
+                //myBookCount = Sync(contractService.GetMyBookCount("0xf17f52151ebef6c7334fad080c5704d77216b732"));
+                myBookCount = Sync(contractService.GetMyBookCount(user.Address));
+
                 vm.ContactAddresses = new List<ContactAddress>();
                 for (int i = 0; i < myBookCount; i++)
                 {
-                    ContactAddress ca = await contractService.GetContact(i,"0xfb3d0b9d9ae0bfccf875688fbb7aaad4556eb371");
+                    //ContactAddress ca = await contractService.GetContact(i, "0xf17f52151ebef6c7334fad080c5704d77216b732");
+                    ContactAddress ca = await contractService.GetContact(i, user.Address);
                     vm.ContactAddresses.Add(ca);
                 }
 

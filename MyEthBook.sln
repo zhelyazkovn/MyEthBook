@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEthBook.Services", "MyEth
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEthBook.Client", "MyEthBook.Client\MyEthBook.Client.csproj", "{5A94D9C1-F8D4-4793-A67C-A9086843F256}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyEthBook.Truffle", "MyEthBook.Truffle", "{36203F78-5A73-4997-9A10-74D6A39F241E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

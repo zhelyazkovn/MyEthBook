@@ -24,7 +24,7 @@ namespace MyEthBook.Client.Controllers
         }
 
         internal ContractService GetContactService()
-        {
+        {   
             /*   Important:
              *   write your contract in remix ide
              *   run local node - test rpc
@@ -33,8 +33,9 @@ namespace MyEthBook.Client.Controllers
              *   get the contract address
              *   get the abi form the details button in Compile section in remix and assign to the ContactService
              */
-            var web3 = new Web3("http://localhost:8545");
-            var service = new ContractService(web3, "0x1a7420bbbb541a91a318dab606060d359f63556c"); //contract address
+            string ethNodeAddress = "https://ropsten.infura.io/pRYzCwqJJrbYxkXJJjL5";// "http://127.0.0.1:7545";
+            var web3 = new Web3(ethNodeAddress);
+            var service = new ContractService(web3, "0xdd6e8a55ef29b4a4dd9a0cf3259afbd0ef4c5755"); //contract address
 
             return service;
         }

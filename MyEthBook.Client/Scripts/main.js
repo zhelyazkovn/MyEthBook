@@ -12,7 +12,7 @@ $(document).ready(function () {
     //todo: add this as parameter from Nethereum!!!!! - contract address and contract ABI!! OR if not possible use nethereum for reading and metamask for adding ;)
     //return contract.GetFunction("numberOfProposals").CallAsync<long>();
     //https://github.com/Nethereum/Nethereum/blob/master/src/Nethereum.Web.Sample/Services/DaoService.cs
-	const documentRegistryContractAddress = '0x1c5d91a56d1aeae82d855c408a8a8b753612a4cb';
+    const documentRegistryContractAddress = '0xdd6e8a55ef29b4a4dd9a0cf3259afbd0ef4c5755';
 	const documentRegistryContractABI = [{"constant": true,"inputs": [{"name": "hash","type": "string"}],"name": "verify","outputs": [{"name": "dateAdded","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "hash","type": "string"}],"name": "add","outputs": [{"name": "dateAdded","type": "uint256"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"inputs": [],"payable": false,"stateMutability": "nonpayable","type": "constructor"}];
 	
 	$('#linkHome').click(function () {
