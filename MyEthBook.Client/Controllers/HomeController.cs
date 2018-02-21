@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Ipfs.Api;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using MyEthBook.Services;
 using Nethereum.Web3;
@@ -24,23 +25,52 @@ namespace MyEthBook.Client.Controllers
         //    }
         //}
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            ContractService contractService = GetContactService();
-            long myBookCount = -1;
+            ContractService contractService =  GetContactService();
+            string imageSrc = "QmdDF4RyGeSXSwoSNQXFqWZDgw2mTaDgWimJcRpAo3GWv5";
+            //string avatar = "avatar55.jpg";
+            //var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");
+            //var file = await ipfs.FileSystem.ReadFileAsync("QmdDF4RyGeSXSwoSNQXFqWZDgw2mTaDgWimJcRpAo3GWv5");
+            //    https://ipfs.io/ipfs/
             //if (User.Identity.IsAuthenticated)
             //{
             //    var user = UserManager.FindById(User.Identity.GetUserId());
-                
+
             //    myBookCount = Sync(contractService.GetMyBookCount("0xfb3d0b9d9ae0bfccf875688fbb7aaad4556eb371"));
 
             //    //myBookCount = Sync(contractService.GetMyBookCount(user.Address));
             //}
 
 
-           // Sync(contractService.AddContact("pena", "0x440a3ced76081189d4faf7342a940a305a61d9e2"));
-            return View(myBookCount);
+            // Sync(contractService.AddContact("pena", "0x440a3ced76081189d4faf7342a940a305a61d9e2"));
+            //var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");// ("http://ipv4.fiddler:5001");
 
+            //const string filename = "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about";
+            //string text = await ipfs.FileSystem.ReadAllTextAsync(filename);
+            //ipfs.FileSystem.AddAsync(, "kur");
+            return View((object)imageSrc);
+
+        }
+
+
+        //
+        // POST: /Manage/Index
+        [HttpPost]
+        public async Task<ActionResult> Index(HttpPostedFileBase avatar)
+        {
+            long myBookCount = -1;
+            if (avatar == null)
+            {
+                avatar = Request.Files["avatar"];
+            }
+            
+            var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");
+            var file = await ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
+
+            var userId = User.Identity.GetUserId();
+
+            return View(myBookCount);
         }
 
         public ActionResult About()

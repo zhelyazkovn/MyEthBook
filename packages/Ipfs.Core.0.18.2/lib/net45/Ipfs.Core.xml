@@ -1,0 +1,3150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ipfs.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Ipfs.Base32">
+            <summary>
+              A codec for Base-32.
+            </summary>
+            <remarks>
+              <para>
+              A codec for Base-32, <see cref="M:Ipfs.Base32.Encode(System.Byte[])"/> and <see cref="M:Ipfs.Base32.Decode(System.String)"/>.  Adds the extension method <see cref="M:Ipfs.Base32.ToBase32(System.Byte[])"/>
+              to encode a byte array and <see cref="M:Ipfs.Base32.FromBase32(System.String)"/> to decode a Base-32 string.
+              </para>
+              <para>
+              A thin wrapper around <see href="https://github.com/ssg/SimpleBase"/>.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Base32.Encode(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-32 characters.
+            </summary>s
+            <param name="input">
+              An array of 8-bit unsigned integers.
+            </param>
+            <returns>
+              The string representation, in base 32, of the contents of <paramref name="input"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base32.ToBase32(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-32 digits.
+            </summary>
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>
+            <returns>
+              The string representation, in base 32, of the contents of <paramref name="bytes"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base32.Decode(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 32 digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="input">
+              The base 32 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="input"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base32.FromBase32(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 32 digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The base 32 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.Base58">
+            <summary>
+              A codec for IPFS Base-58.
+            </summary>
+            <remarks>
+              <para>
+              A codec for Base-58, <see cref="M:Ipfs.Base58.Encode(System.Byte[])"/> and <see cref="M:Ipfs.Base58.Decode(System.String)"/>.  Adds the extension method <see cref="M:Ipfs.Base58.ToBase58(System.Byte[])"/>
+              to encode a byte array and <see cref="M:Ipfs.Base58.FromBase58(System.String)"/> to decode a Base-58 string.
+              </para>
+              <para>
+              This is just thin wrapper of <see href="https://github.com/ssg/SimpleBase"/>.
+              </para>
+              <para>
+              This codec uses the BitCoin alphabet <b>not Flickr's</b>.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Base58.Encode(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-58 characters.
+            </summary>s
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>
+            <returns>
+              The string representation, in base 58, of the contents of <paramref name="bytes"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base58.ToBase58(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-58 digits.
+            </summary>
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>
+            <returns>
+              The string representation, in base 58, of the contents of <paramref name="bytes"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base58.Decode(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 58 digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The base 58 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base58.FromBase58(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 58 digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The base 58 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.Base64NoPad">
+            <summary>
+              A codec for Base-64 (RFC 4648) with no padding.
+            </summary>
+            <remarks>
+              <para>
+              A codec for Base-64, <see cref="M:Ipfs.Base64NoPad.Encode(System.Byte[])"/> and <see cref="M:Ipfs.Base64NoPad.Decode(System.String)"/>.  Adds the extension method <see cref="M:Ipfs.Base64NoPad.ToBase64NoPad(System.Byte[])"/>
+              to encode a byte array and <see cref="M:Ipfs.Base64NoPad.FromBase64NoPad(System.String)"/> to decode a Base-64 string.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Base64NoPad.Encode(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-64 characters.
+            </summary>s
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>
+            <returns>
+              The string representation, in base 64, of the contents of <paramref name="bytes"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base64NoPad.ToBase64NoPad(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-64 digits.
+            </summary>
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>s
+            <returns>
+              The string representation, in base 64, of the contents of <paramref name="bytes"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base64NoPad.Decode(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 64 digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The base 64 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base64NoPad.FromBase64NoPad(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 64 digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The base 64 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.Base64Url">
+            <summary>
+              A codec for Base-64 URL (RFC 4648).
+            </summary>
+            <remarks>
+              <para>
+              A codec for Base-64 URL, <see cref="M:Ipfs.Base64Url.Encode(System.Byte[])"/> and <see cref="M:Ipfs.Base64Url.Decode(System.String)"/>.  Adds the extension method <see cref="M:Ipfs.Base64Url.ToBase64Url(System.Byte[])"/>
+              to encode a byte array and <see cref="M:Ipfs.Base64Url.FromBase64Url(System.String)"/> to decode a Base-64 URL string.
+              </para>
+              <para>
+              The original code was found at <see href="https://brockallen.com/2014/10/17/base64url-encoding/"/>.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Base64Url.Encode(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-64 URL characters.
+            </summary>s
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>
+            <returns>
+              The string representation, in base 64, of the contents of <paramref name="bytes"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base64Url.ToBase64Url(System.Byte[])">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation that is 
+              encoded with base-64 URL digits.
+            </summary>
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>s
+            <returns>
+              The string representation, in base 64, of the contents of <paramref name="bytes"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base64Url.Decode(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 64 URL digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The base 64 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Base64Url.FromBase64Url(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as base 64 url digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The base 64 string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.Cid">
+            <summary>
+             Identifies some content, e.g. a Content ID.
+            </summary>
+            <remarks>
+              <para>
+              A Cid is a self-describing content-addressed identifier for distributed systems.
+              </para>
+              <para>
+              Initially, IPFS used a <see cref="T:Ipfs.MultiHash"/> as the CID and this is still supported as <see cref="P:Ipfs.Cid.Version"/> 0.
+              Version 1 adds a self describing structure to the multi-hash, see the <see href="https://github.com/ipld/cid">spec</see>. 
+              </para>
+              <note>
+              The <see cref="P:Ipfs.MultiHash.Algorithm">hashing algorithm</see> must be "sha2-256" for a version 0 CID.
+              </note>
+            </remarks>
+            <seealso href="https://github.com/ipld/cid"/>
+        </member>
+        <member name="F:Ipfs.Cid.DefaultContentType">
+            <summary>
+              The default <see cref="P:Ipfs.Cid.ContentType"/>, "dag-pb".
+            </summary>
+        </member>
+        <member name="P:Ipfs.Cid.Version">
+            <summary>
+              The version of the CID.
+            </summary>
+            <value>
+              0 or 1.
+            </value>
+        </member>
+        <member name="P:Ipfs.Cid.Encoding">
+            <summary>
+              The encoding of the CID.
+            </summary>
+            <value>
+              base58btc, base64, etc.  Defaults to "base58btc",
+            </value>
+            <seealso cref="T:Ipfs.MultiBase"/>
+        </member>
+        <member name="P:Ipfs.Cid.ContentType">
+            <summary>
+              The content type or format of the data being addressed.
+            </summary>
+            <value>
+              dag-pb, dag-cbor, eth-block, etc.  Defaults to "dag-pb".
+            </value>
+            <seealso cref="T:Ipfs.MultiCodec"/>
+        </member>
+        <member name="P:Ipfs.Cid.Hash">
+            <summary>
+              The cryptographic hash of the content being addressed.
+            </summary>
+            <value>
+              The <see cref="T:Ipfs.MultiHash"/> of the content being addressed.
+            </value>
+        </member>
+        <member name="M:Ipfs.Cid.ToString">
+            <summary>
+              A CID that is readable by a human.
+            </summary>
+            <returns>
+             e.g. "base58btc cidv0 dag-pb sha2-256 Qm..."
+            </returns>
+        </member>
+        <member name="M:Ipfs.Cid.Encode">
+            <summary>
+              Converts the CID to its equivalent string representation.
+            </summary>
+            <returns>
+              The string representation of the <see cref="T:Ipfs.Cid"/>.
+            </returns>
+            <remarks>
+              For <see cref="P:Ipfs.Cid.Version"/> 0, this is equalivalent to the 
+              <see cref="M:Ipfs.MultiHash.ToBase58">base58btc encoding</see>
+              of the <see cref="P:Ipfs.Cid.Hash"/>.
+            </remarks>
+            <seealso cref="M:Ipfs.Cid.Decode(System.String)"/>
+        </member>
+        <member name="M:Ipfs.Cid.Decode(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>
+              to an equivalent <see cref="T:Ipfs.Cid"/> object.
+            </summary>
+            <param name="input">
+              The <see cref="M:Ipfs.Cid.Encode">CID encoded</see> string.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Cid"/> that is equivalent to <paramref name="input"/>.
+            </returns>
+            <exception cref="T:System.FormatException">
+              When the <paramref name="input"/> can not be decoded.
+            </exception>
+            <seealso cref="M:Ipfs.Cid.Encode"/>
+        </member>
+        <member name="M:Ipfs.Cid.Read(System.IO.Stream)">
+            <summary>
+              Reads the binary representation of the CID from the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to read from.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Cid"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Cid.Write(System.IO.Stream)">
+            <summary>
+              Writes the binary representation of the CID to the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to write to.
+            </param>
+        </member>
+        <member name="M:Ipfs.Cid.Read(Google.Protobuf.CodedInputStream)">
+            <summary>
+              Reads the binary representation of the CID from the specified <see cref="T:Google.Protobuf.CodedInputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedInputStream"/> to read from.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Cid"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Cid.Write(Google.Protobuf.CodedOutputStream)">
+            <summary>
+              Writes the binary representation of the CID to the specified <see cref="T:Google.Protobuf.CodedOutputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedOutputStream"/> to write to.
+            </param>
+        </member>
+        <member name="M:Ipfs.Cid.op_Implicit(Ipfs.MultiHash)~Ipfs.Cid">
+            <summary>
+              Implicit casting of a <see cref="T:Ipfs.MultiHash"/> to a <see cref="T:Ipfs.Cid"/>.
+            </summary>
+            <param name="hash">
+              A <see cref="T:Ipfs.MultiHash"/>.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Cid"/> based on the <paramref name="hash"/>.  A <see cref="P:Ipfs.Cid.Version"/> 0
+              CID is returned if the <paramref name="hash"/> is "sha2-356"; otherwise <see cref="P:Ipfs.Cid.Version"/> 1.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Cid.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Cid.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Cid.Equals(Ipfs.Cid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Cid.op_Equality(Ipfs.Cid,Ipfs.Cid)">
+            <summary>
+              Value equality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Cid.op_Inequality(Ipfs.Cid,Ipfs.Cid)">
+            <summary>
+              Value inequality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Cid.op_Implicit(System.String)~Ipfs.Cid">
+            <summary>
+              Implicit casting of a <see cref="T:System.String"/> to a <see cref="T:Ipfs.Cid"/>.
+            </summary>
+            <param name="s">
+              A string encoded <b>Cid</b>.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Cid"/>.
+            </returns>
+            <remarks>
+               Equivalent to <code> Cid.Decode(s)</code>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Cid.op_Implicit(Ipfs.Cid)~System.String">
+            <summary>
+              Implicit casting of a <see cref="T:Ipfs.Cid"/> to a <see cref="T:System.String"/>.
+            </summary>
+            <param name="id">
+              A <b>Cid</b>.
+            </param>
+            <returns>
+              A new <see cref="T:System.String"/>.
+            </returns>
+            <remarks>
+               Equivalent to <code>Cid.Encode()</code>
+            </remarks>
+        </member>
+        <member name="T:Ipfs.CoreApi.IBitswapApi">
+            <summary>
+              Interact with the bitswap agent.
+            </summary>
+            <remarks>
+              <note>Not yet ready for prime time.</note>
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/BITSWAP.md">Bitswap API spec</seealso>
+        </member>
+        <member name="T:Ipfs.CoreApi.IBlockApi">
+            <summary>
+              Manages IPFS blocks.
+            </summary>
+            <remarks>
+              An IPFS Block is a byte sequence that represents an IPFS Object 
+              (i.e. serialized byte buffers). It is useful to talk about them as "blocks" in Bitswap 
+              and other things that do not care about what is being stored. 
+              <para>
+              It is also possible to store arbitrary stuff using ipfs block put/get as the API 
+              does not check for proper IPFS Object formatting.
+              </para>
+              <note>
+              This may be very good or bad, we haven't decided yet 😄
+              </note>
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/BLOCK.md">Block API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IBlockApi.GetAsync(Ipfs.Cid,System.Threading.CancellationToken)">
+            <summary>
+              Gets a IPFS block.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> of the block.
+            </param>
+            <returns>
+               A task that represents the asynchronous get operation. The task's value
+               contains the block's id and data.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IBlockApi.PutAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+              Stores a byte array as a IPFS block.
+            </summary>
+            <param name="data">
+              The byte array to send to the IPFS network.
+            </param>
+            <param name="contentType">
+              The content type or format of the <paramref name="data"/>; such as "raw" or "dag-db".
+              See <see cref="T:Ipfs.MultiCodec"/> for more details.
+            </param>
+            <param name="multiHash">
+              The <see cref="T:Ipfs.MultiHash"/> algorithm name used to produce the <see cref="T:Ipfs.Cid"/>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+               A task that represents the asynchronous put operation. The task's value is
+               the block's <see cref="T:Ipfs.Cid"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IBlockApi.PutAsync(System.IO.Stream,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+              Stores a stream as a IPFS block.
+            </summary>
+            <param name="data">
+              The <see cref="T:System.IO.Stream"/> of data to send to the IPFS network.
+            </param>
+            <param name="contentType">
+              The content type or format of the <paramref name="data"/>; such as "raw" or "dag-db".
+              See <see cref="T:Ipfs.MultiCodec"/> for more details.
+            </param>
+            <param name="multiHash">
+              The <see cref="T:Ipfs.MultiHash"/> algorithm name used to produce the <see cref="T:Ipfs.Cid"/>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+               A task that represents the asynchronous put operation. The task's value is
+               the block's <see cref="T:Ipfs.Cid"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IBlockApi.StatAsync(Ipfs.Cid,System.Threading.CancellationToken)">
+            <summary>
+              Information on a IPFS block.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> of the block.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+               A task that represents the asynchronous operation. The task's value
+               contains the block's id and size.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IBlockApi.RemoveAsync(Ipfs.Cid,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+              Remove a IPFS block.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> of the block.
+            </param>
+            <param name="ignoreNonexistent">
+              If <b>true</b> do not raise exception when <paramref name="id"/> does not
+              exist.  Default value is <b>false</b>.
+            </param>
+            <returns>
+              The awaited Task will return the deleted <paramref name="id"/> or <b>null</b>
+              if the <paramref name="id"/> does not exist and <paramref name="ignoreNonexistent"/>
+              is <b>true</b>.
+            </returns>
+            <remarks>
+              This removes the block from the local cache and does not affect other peers.
+            </remarks>
+        </member>
+        <member name="T:Ipfs.CoreApi.IConfigApi">
+            <summary>
+              Manages the IPFS Configuration.
+            </summary>
+            <remarks>
+              <para>
+              Configuration values are JSON.  <see href="http://www.newtonsoft.com/json">Json.NET</see>
+              is used to represent JSON.
+              </para>
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/CONFIG.md">Config API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IConfigApi.GetAsync(System.Threading.CancellationToken)">
+            <summary>
+              Gets the entire configuration.
+            </summary>
+            <returns>
+              A <see cref="T:Newtonsoft.Json.Linq.JObject"/> containing the configuration.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IConfigApi.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Gets the value of a configuration key.
+            </summary>
+            <param name="key">
+              The key name, such as "Addresses.API".
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              The value of the <paramref name="key"/> as <see cref="T:Newtonsoft.Json.Linq.JToken"/>.
+            </returns>
+            <exception cref="T:System.Exception">
+              When the <paramref name="key"/> does not exist.
+            </exception>
+            <remarks>
+              Keys are case sensistive.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.CoreApi.IConfigApi.SetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+              Adds or replaces a configuration value.
+            </summary>
+            <param name="key">
+              The key name, such as "Addresses.API".
+            </param>
+            <param name="value">
+              The new <see cref="T:System.String"/> value of the <paramref name="key"/>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+        </member>
+        <member name="M:Ipfs.CoreApi.IConfigApi.SetAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken)">
+            <summary>
+              Adds or replaces a configuration value.
+            </summary>
+            <param name="key">
+              The key name, such as "Addresses.API".
+            </param>
+            <param name="value">
+              The new <see cref="T:Newtonsoft.Json.Linq.JToken">JSON</see> value of the <paramref name="key"/>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+        </member>
+        <member name="M:Ipfs.CoreApi.IConfigApi.ReplaceAsync(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+              Replaces the entire configuration.
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:Ipfs.CoreApi.ICoreApi">
+            <summary>
+              The IPFS Core API.
+            </summary>
+            <remarks>
+              The Core API defines a set of interfaces to manage IPFS.
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core"/>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Bitswap">
+            <summary>
+              Provides access to the Bitswap API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IBitswapApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Block">
+            <summary>
+              Provides access to the Block API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IBlockApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Config">
+            <summary>
+              Provides access to the Config API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IConfigApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Dag">
+            <summary>
+              Provides access to the Daglock API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IDagApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Dht">
+            <summary>
+              Provides access to the DHT API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IDhtApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.FileSystem">
+            <summary>
+              Provides access to the File System API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IFileSystemApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Generic">
+            <summary>
+              Provides access to the Generic API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IGenericApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Key">
+            <summary>
+              Provides access to the Key API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IKeyApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Name">
+            <summary>
+              Provides access to the Name API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.INameApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Object">
+            <summary>
+              Provides access to the Object API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IObjectApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Pin">
+            <summary>
+              Provides access to the Pin API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IPinApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.PubSub">
+            <summary>
+              Provides access to the PubSub API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.IPubSubApi"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.CoreApi.ICoreApi.Swarm">
+            <summary>
+              Provides access to the Swarm API.
+            </summary>
+            <value>
+              An object that implements <see cref="T:Ipfs.CoreApi.ISwarmApi"/>.
+            </value>
+        </member>
+        <member name="T:Ipfs.CoreApi.IDagApi">
+            <summary>
+              Manages the IPLD Directed Acrylic Graph.
+            </summary>
+            <remarks>
+              The dag API is a replacement of the <see cref="T:Ipfs.CoreApi.IObjectApi"/>, which only supported 'dag-pb'.
+              This API supports other IPLD formats, such as dag-cbor, ethereum-block, git, ...
+            </remarks>
+            <seealso cref="T:Ipfs.CoreApi.IObjectApi"/>
+            <seealso cref="T:Ipfs.ILinkedNode"/>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/DAG.md">Dag API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IDagApi.PutAsync(Ipfs.ILinkedNode,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+             Put an IPLD node.
+            </summary>
+            <param name="data">
+              The data to send to the network.
+            </param>
+            <param name="contentType">
+              The content type or format of the <paramref name="data"/>; such as "raw" or "dag-db".
+              See <see cref="T:Ipfs.MultiCodec"/> for more details.
+            </param>
+            <param name="multiHash">
+              The <see cref="T:Ipfs.MultiHash"/> algorithm name used to produce the <see cref="T:Ipfs.Cid"/>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+               A task that represents the asynchronous put operation. The task's value is
+               the data's <see cref="T:Ipfs.Cid"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IDagApi.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Get an IPLD node.
+            </summary>
+            <param name="path">
+              The CID or path to an IPLD node.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous get operation. The task's value
+              contains the node's content.
+            </returns>
+        </member>
+        <member name="T:Ipfs.CoreApi.IDhtApi">
+            <summary>
+              Manages the Distributed Hash Table.
+            </summary>
+            <remarks>
+              The DHT is a place to store, not the value, but pointers to peers who have 
+              the actual value.
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/DHT.md">DHT API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IDhtApi.FindPeerAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">
+            <summary>
+              Information about an IPFS peer.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.MultiHash"/> ID of the IPFS peer.  
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+        </member>
+        <member name="M:Ipfs.CoreApi.IDhtApi.FindProvidersAsync(Ipfs.Cid,System.Threading.CancellationToken)">
+            <summary>
+              Find the providers for the specified content.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> of the content.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A sequence of IPFS <see cref="T:Ipfs.Peer"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.CoreApi.IFileSystemApi">
+            <summary>
+              Manages the files/directories in IPFS.
+            </summary>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/FILES.md">Files API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IFileSystemApi.AddFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Add a local file to the interplanetary file system.
+            </summary>
+            <param name="path">
+              The name of the local file.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+               A task that represents the asynchronous operation. The task's value is
+               the file's node.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IFileSystemApi.AddTextAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Add some text to the interplanetary file system.
+            </summary>
+            <param name="text">
+              The string to add to IPFS.  It is UTF-8 encoded.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              the text's node.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IFileSystemApi.AddAsync(System.IO.Stream,System.String,System.Threading.CancellationToken)">
+            <summary>
+              Add a <see cref="T:System.IO.Stream"/> to interplanetary file system.
+            </summary>
+            <param name="stream"></param>
+            <param name="name"></param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              the data's node.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IFileSystemApi.AddDirectoryAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+              Add a directory and its files to the interplanetary file system.
+            </summary>
+            <param name="path">
+              The path to directory.
+            </param>
+            <param name="recursive">
+              <b>true</b> to add sub-folders.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              the directory's node.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IFileSystemApi.ReadAllTextAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Reads the content of an existing IPFS file as text.
+            </summary>
+            <param name="path">
+              A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+              or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              the contents of the <paramref name="path"/> as a <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IFileSystemApi.ReadFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Reads an existing IPFS file.
+            </summary>
+            <param name="path">
+              A path to an existing file, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+              or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              a <see cref="T:System.IO.Stream"/> to the file contents.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IFileSystemApi.ListFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Get information about the file or directory.
+            </summary>
+            <param name="path">
+              A path to an existing file or directory, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+              or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Ipfs.CoreApi.IGenericApi">
+            <summary>
+              Some miscellaneous methods.
+            </summary>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/MISCELLANEOUS.md">Generic API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IGenericApi.IdAsync(Ipfs.MultiHash,System.Threading.CancellationToken)">
+            <summary>
+              Information about an IPFS peer.
+            </summary>
+            <param name="peer">
+              The id of the IPFS peer.  If not specified (e.g. null), then the local
+              peer is used.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              Information on the peer node.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IGenericApi.VersionAsync(System.Threading.CancellationToken)">
+            <summary>
+              Get the version information.
+            </summary>
+        </member>
+        <member name="T:Ipfs.CoreApi.IKeyApi">
+            <summary>
+              Manages cryptographic keys.
+            </summary>
+            <remarks>
+              <note>
+              The Key API is work in progress! There be dragons here.
+              </note>
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/KEY.md">Key API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IKeyApi.CreateAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+              Creates a new key.
+            </summary>
+            <param name="name">
+              The local name of the key.
+            </param>
+            <param name="keyType">
+              The type of key to create; "rsa" or "ed25519".
+            </param>
+            <param name="size">
+              The size, in bits, of the key.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              The information on the newly created key.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IKeyApi.ListAsync(System.Threading.CancellationToken)">
+            <summary>
+              List all the keys.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A sequence of IPFS keys.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IKeyApi.RemoveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Delete the specified key.
+            </summary>
+            <param name="name">
+              The local name of the key.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A sequence of IPFS keys that were deleted.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IKeyApi.RenameAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+              Rename the specified key.
+            </summary>
+            <param name="oldName">
+              The local name of the key.
+            </param>
+            <param name="newName">
+              The new local name of the key.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A sequence of IPFS keys that were deleted.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IKeyApi.Export(System.String,System.Security.SecureString,System.Threading.CancellationToken)">
+            <summary>
+              Export a key to a PEM encoded password protected PKCS #8 container.
+            </summary>
+            <param name="name">
+              The local name of the key.
+            </param>
+            <param name="password">
+              The PEM's password.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+               A task that represents the asynchronous operation. The task's value
+               the password protected PEM string.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IKeyApi.Import(System.String,System.String,System.Security.SecureString,System.Threading.CancellationToken)">
+            <summary>
+              Import a key from a PEM encoded password protected PKCS #8 container.
+            </summary>
+            <param name="name">
+              The local name of the key.
+            </param>
+            <param name="pem">
+              The PEM encoded PKCS #8 container.
+            </param>
+            <param name="password">
+              The <paramref name="pem"/>'s password.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+               A task that represents the asynchronous operation. The task's value
+               the password protected PEM string.
+            </returns>
+        </member>
+        <member name="T:Ipfs.CoreApi.INameApi">
+            <summary>
+              Manages the IPNS (Interplanetary Name Space).
+            </summary>
+            <remarks>
+              IPNS is a PKI namespace, where names are the hashes of public keys, and
+              the private key enables publishing new(signed) values. In both <see cref="M:Ipfs.CoreApi.INameApi.PublishAsync(System.String,System.Boolean,System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"/>
+              and <see cref="M:Ipfs.CoreApi.INameApi.ResolveAsync(System.String,System.Boolean,System.Boolean,System.Threading.CancellationToken)"/>, the default name used is the node's own <see cref="P:Ipfs.Peer.Id"/>,
+              which is the hash of its public key.
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/NAME.md">Name API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.INameApi.PublishAsync(System.String,System.Boolean,System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+              Publish an IPFS name.
+            </summary>
+            <param name="path">
+              The CID or path to the content to publish.
+            </param>
+            <param name="resolve">
+              Resolve <paramref name="path"/> before publishing. Defaults to <b>true</b>.
+            </param>
+            <param name="key">
+              The local key name used to sign the content.  Defauts to "self".
+            </param>
+            <param name="lifetime">
+              Duration that the record will be valid for.  Defaults to 24 hours.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              the <see cref="T:Ipfs.Cid"/> of the published content.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.INameApi.ResolveAsync(System.String,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+              Resolve an IPNS name.
+            </summary>
+            <param name="name">
+              An IPNS address, such as: /ipns/ipfs.io or a CID.
+            </param>
+            <param name="recursive">
+              Resolve until the result is not an IPNS name. Defaults to <b>false</b>.
+            </param>
+            <param name="nocache">
+              Do not use cached entries. Defaulst to <b>false</b>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              the resolved <see cref="T:Ipfs.Cid"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.CoreApi.IObjectApi">
+            <summary>
+              Manages the IPFS Directed Acrylic Graph.
+            </summary>
+            <remarks>
+              <note>
+              This is being obsoleted by <see cref="T:Ipfs.CoreApi.IDagApi"/>.
+              </note>
+            </remarks>
+            <seealso cref="T:Ipfs.CoreApi.IDagApi"/>
+            <seealso cref="T:Ipfs.DagNode"/>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/OBJECT.md">Object API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IObjectApi.NewDirectoryAsync(System.Threading.CancellationToken)">
+            <summary>
+              Creates a new file directory in IPFS.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a <see cref="T:Ipfs.DagNode"/> to the new directory.
+            </returns>
+            <remarks>
+              Equivalent to <c>NewAsync("unixfs-dir")</c>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.CoreApi.IObjectApi.NewAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Create a new MerkleDAG node, using a specific layout.
+            </summary>
+            <param name="template"><b>null</b> or "unixfs-dir".</param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a <see cref="T:Ipfs.DagNode"/> to the new directory.
+            </returns>
+            <remarks>
+             Caveat: So far, only UnixFS object layouts are supported.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.CoreApi.IObjectApi.GetAsync(Ipfs.Cid,System.Threading.CancellationToken)">
+            <summary>
+              Fetch a MerkleDAG node.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> to the node.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a <see cref="T:Ipfs.DagNode"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IObjectApi.PutAsync(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink},System.Threading.CancellationToken)">
+            <summary>
+              Store a MerkleDAG node.
+            </summary>
+            <param name="data">
+              The opaque data, can be <b>null</b>.
+            </param>
+            <param name="links">
+              The links to other nodes.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a <see cref="T:Ipfs.DagNode"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IObjectApi.PutAsync(Ipfs.DagNode,System.Threading.CancellationToken)">
+            <summary>
+              Store a MerkleDAG node.
+            </summary>
+            <param name="node">A merkle dag</param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a <see cref="T:Ipfs.DagNode"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IObjectApi.DataAsync(Ipfs.Cid,System.Threading.CancellationToken)">
+            <summary>
+              Get the data of a MerkleDAG node.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> of the node.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a stream of data.
+            </returns>
+            <remarks>
+              The caller must dispose the returned <see cref="T:System.IO.Stream"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.CoreApi.IObjectApi.LinksAsync(Ipfs.Cid,System.Threading.CancellationToken)">
+            <summary>
+              Get the links of a MerkleDAG node.
+            </summary>
+            <param name="id">
+              The <see cref="T:Ipfs.Cid"/> id of the node.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a sequence of links.
+            </returns>
+        </member>
+        <member name="T:Ipfs.CoreApi.IPinApi">
+            <summary>
+              Manage pinned objects (locally stored and permanent).
+            </summary>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/PIN.md">Pin API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IPinApi.AddAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+              Adds an IPFS object to the pinset and also stores it to the IPFS repo. pinset is the set of hashes currently pinned (not gc'able).
+            </summary>
+            <param name="path">
+              A CID or path to an existing object, such as "QmXarR6rgkQ2fDSHjSY5nM2kuCXKYGViky5nohtwgF65Ec/about"
+              or "QmZTR5bcpQD7cFgTorqxZDYaew1Wqgfbd2ud9QqGPAkK2V"
+            </param>
+            <param name="recursive">
+              <b>true</b> to recursively pin links of the object; otherwise, <b>false</b> to only pin
+              the specified object.  Default is <b>true</b>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a sequence of <see cref="T:Ipfs.Cid"/> that were pinned.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IPinApi.ListAsync(System.Threading.CancellationToken)">
+            <summary>
+              List all the objects pinned to local storage.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a sequence of <see cref="T:Ipfs.Cid"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IPinApi.RemoveAsync(Ipfs.Cid,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+              Unpin an object.
+            </summary>
+            <param name="id">
+              The CID of the object.
+            </param>
+            <param name="recursive">
+              <b>true</b> to recursively unpin links of object; otherwise, <b>false</b> to only unpin
+              the specified object.  Default is <b>true</b>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a sequence of <see cref="T:Ipfs.Cid"/> that were unpinned.
+            </returns>
+        </member>
+        <member name="T:Ipfs.CoreApi.IPubSubApi">
+            <summary>
+              Allows you to publish messages to a given topic, and also to
+              subscribe to new messages on a given topic.
+            </summary>
+            <remarks>
+              <para>
+              This is an experimental feature. It is not intended in its current state
+              to be used in a production environment.
+              </para>
+              <para>
+              To use, the daemon must be run with '--enable-pubsub-experiment'.
+              </para>
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/PUBSUB.md">Pubsub API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.IPubSubApi.SubscribedTopicsAsync(System.Threading.CancellationToken)">
+            <summary>
+              Get the subscribed topics.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              a sequence of <see cref="T:System.String"/> for each topic.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IPubSubApi.PeersAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Get the peers that are pubsubing with us.
+            </summary>
+            <param name="topic">
+              When specified, only peers pubsubing on the topic are returned.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value is
+              a sequence of <see cref="T:Ipfs.Peer"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IPubSubApi.Publish(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+              Publish a message to a given topic.
+            </summary>
+            <param name="topic">
+              The topic name.
+            </param>
+            <param name="message">
+              The message to publish.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.IPubSubApi.Subscribe(System.String,System.Action{Ipfs.IPublishedMessage},System.Threading.CancellationToken)">
+            <summary>
+              Subscribe to messages on a given topic.
+            </summary>
+            <param name="topic">
+              The topic name.
+            </param>
+            <param name="handler">
+              The action to perform when a <see cref="T:Ipfs.IPublishedMessage"/> is received.
+            </param>
+            <param name="cancellationToken">
+              Is used to stop the topic listener.  When cancelled, the <see cref="T:System.OperationCanceledException"/>
+              is <b>NOT</b> raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation.
+            </returns>
+            <remarks>
+              The <paramref name="handler"/> is invoked on the topic listener thread.
+            </remarks>
+        </member>
+        <member name="T:Ipfs.CoreApi.ISwarmApi">
+            <summary>
+              Manages the swarm of peers.
+            </summary>
+            <remarks>
+              The swarm is a sequence of connected peer nodes.
+            </remarks>
+            <seealso href="https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/SWARM.md">Swarm API spec</seealso>
+        </member>
+        <member name="M:Ipfs.CoreApi.ISwarmApi.AddressesAsync(System.Threading.CancellationToken)">
+            <summary>
+              Get the peers in the current swarm.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a sequence of peer nodes.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.ISwarmApi.PeersAsync(System.Threading.CancellationToken)">
+            <summary>
+              Get the peers that are connected to this node.
+            </summary>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+            <returns>
+              A task that represents the asynchronous operation. The task's value
+              is a sequence of <see cref="T:Ipfs.Peer">Connected Peers</see>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.CoreApi.ISwarmApi.ConnectAsync(Ipfs.MultiAddress,System.Threading.CancellationToken)">
+            <summary>
+              Connect to a peer.
+            </summary>
+            <param name="address">
+              An ipfs <see cref="T:Ipfs.MultiAddress"/>, such as
+             <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+        </member>
+        <member name="M:Ipfs.CoreApi.ISwarmApi.DisconnectAsync(Ipfs.MultiAddress,System.Threading.CancellationToken)">
+            <summary>
+              Disconnect from a peer.
+            </summary>
+            <param name="address">
+              An ipfs <see cref="T:Ipfs.MultiAddress"/>, such as
+             <c>/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</c>.
+            </param>
+            <param name="cancel">
+              Is used to stop the task.  When cancelled, the <see cref="T:System.Threading.Tasks.TaskCanceledException"/> is raised.
+            </param>
+        </member>
+        <member name="T:Ipfs.Cryptography.BouncyDigest">
+            <summary>
+              Thin wrapper around bouncy castle digests.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Cryptography.BouncyDigest.#ctor(Org.BouncyCastle.Crypto.IDigest)">
+            <summary>
+              Wrap the bouncy castle digest.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Cryptography.BouncyDigest.Initialize">
+            <inheritdoc/>
+        </member>
+        <member name="M:Ipfs.Cryptography.BouncyDigest.HashCore(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Ipfs.Cryptography.BouncyDigest.HashFinal">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ipfs.DagLink">
+            <summary>
+              A link to another node in the IPFS Merkle DAG.
+            </summary>
+        </member>
+        <member name="M:Ipfs.DagLink.#ctor(System.String,Ipfs.Cid,System.Int64)">
+            <summary>
+              Create a new instance of <see cref="T:Ipfs.DagLink"/> class.
+            </summary>
+            <param name="name">The name associated with the linked node.</param>
+            <param name="id">The <see cref="T:Ipfs.Cid"/> of the linked node.</param>
+            <param name="size">The serialised size (in bytes) of the linked node.</param>
+        </member>
+        <member name="M:Ipfs.DagLink.#ctor(Ipfs.IMerkleLink)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.DagLink"/> class from the
+              specified <see cref="T:Ipfs.IMerkleLink"/>.
+            </summary>
+            <param name="link">
+              Some type of a Merkle link.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagLink.#ctor(System.IO.Stream)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.DagLink"/> class from the
+              specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              A <see cref="T:System.IO.Stream"/> containing the binary representation of the
+              <b>DagLink</b>.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagLink.#ctor(Google.Protobuf.CodedInputStream)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.DagLink"/> class from the
+              specified <see cref="T:Google.Protobuf.CodedInputStream"/>.
+            </summary>
+            <param name="stream">(
+              A <see cref="T:Google.Protobuf.CodedInputStream"/> containing the binary representation of the
+              <b>DagLink</b>.
+            </param>
+        </member>
+        <member name="P:Ipfs.DagLink.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.DagLink.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.DagLink.Size">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.DagLink.Write(System.IO.Stream)">
+            <summary>
+              Writes the binary representation of the link to the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to write to.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagLink.Write(Google.Protobuf.CodedOutputStream)">
+            <summary>
+              Writes the binary representation of the link to the specified <see cref="T:Google.Protobuf.CodedOutputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedOutputStream"/> to write to.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagLink.ToArray">
+            <summary>
+              Returns the IPFS binary representation as a byte array.
+            </summary>
+            <returns>
+              A byte array.
+            </returns>
+        </member>
+        <member name="T:Ipfs.DagNode">
+            <summary>
+              A node in the IPFS Merkle DAG.
+            </summary>
+            <remarks>
+              A <b>DagNode</b> has opaque <see cref="P:Ipfs.DagNode.DataBytes"/>
+              and a set of navigable <see cref="P:Ipfs.DagNode.Links"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.DagNode.#ctor(System.Byte[],System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink},System.String)">
+            <summary>
+              Create a new instance of a <see cref="T:Ipfs.DagNode"/> with the specified
+              <see cref="P:Ipfs.DagNode.DataBytes"/> and <see cref="P:Ipfs.DagNode.Links"/>
+            </summary>
+            <param name="data">
+              The opaque data, can be <b>null</b>.
+            </param>
+            <param name="links">
+              The links to other nodes.
+            </param>
+            <param name="hashAlgorithm">
+              The name of the hashing algorithm to use; defaults to 
+              <see cref="F:Ipfs.MultiHash.DefaultAlgorithmName"/>.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagNode.#ctor(System.IO.Stream)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.DagNode"/> class from the
+              specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              A <see cref="T:System.IO.Stream"/> containing the binary representation of the
+              <b>DagNode</b>.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagNode.#ctor(Google.Protobuf.CodedInputStream)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.DagNode"/> class from the
+              specified <see cref="T:Google.Protobuf.CodedInputStream"/>.
+            </summary>
+            <param name="stream">(
+              A <see cref="T:Google.Protobuf.CodedInputStream"/> containing the binary representation of the
+              <b>DagNode</b>.
+            </param>
+        </member>
+        <member name="P:Ipfs.DagNode.Links">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.DagNode.DataBytes">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.DagNode.DataStream">
+            <inheritdoc />
+        </member>
+        <member name="P:Ipfs.DagNode.Size">
+            <summary>
+              The serialised size in bytes of the node.
+            </summary>
+        </member>
+        <member name="P:Ipfs.DagNode.Id">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.DagNode.ToLink(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.DagNode.AddLink(Ipfs.IMerkleLink)">
+            <summary>
+              Adds a link.
+            </summary>
+            <param name="link">
+              The link to add.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.DagNode"/> with the existing and new
+              links.
+            </returns>
+            <remarks>
+              A <b>DagNode</b> is immutable.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.DagNode.AddLinks(System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink})">
+            <summary>
+              Adds a sequence of links.
+            </summary>
+            <param name="links">
+              The sequence of links to add.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.DagNode"/> with the existing and new
+              links.
+            </returns>
+            <remarks>
+              A <b>DagNode</b> is immutable.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.DagNode.RemoveLink(Ipfs.IMerkleLink)">
+            <summary>
+              Removes a link.
+            </summary>
+            <param name="link">
+              The <see cref="T:Ipfs.IMerkleLink"/> to remove.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.DagNode"/> with the <paramref name="link"/>
+              removed.
+            </returns>
+            <remarks>
+              A <b>DagNode</b> is immutable.
+              <para>
+              No exception is raised if the <paramref name="link"/> does
+              not exist.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.DagNode.RemoveLinks(System.Collections.Generic.IEnumerable{Ipfs.IMerkleLink})">
+            <summary>
+              Remove a sequence of links.
+            </summary>
+            <param name="links">
+              The sequence of <see cref="T:Ipfs.IMerkleLink"/> to remove.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.DagNode"/> with the <paramref name="links"/>
+              removed.
+            </returns>
+            <remarks>
+              A <b>DagNode</b> is immutable.
+              <para>
+              No exception is raised if any of the <paramref name="links"/> do
+              not exist.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.DagNode.Write(System.IO.Stream)">
+            <summary>
+              Writes the binary representation of the node to the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to write to.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagNode.Write(Google.Protobuf.CodedOutputStream)">
+            <summary>
+              Writes the binary representation of the node to the specified <see cref="T:Google.Protobuf.CodedOutputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedOutputStream"/> to write to.
+            </param>
+        </member>
+        <member name="M:Ipfs.DagNode.ToArray">
+            <summary>
+              Returns the IPFS binary representation as a byte array.
+            </summary>
+            <returns>
+              A byte array.
+            </returns>
+        </member>
+        <member name="T:Ipfs.HexString">
+            <summary>
+              A codec for <see href="https://en.wikipedia.org/wiki/Hexadecimal">Hexadecimal</see>.
+            </summary>
+            <remarks>
+              <para>
+              A codec for a hexadecimal string, <see cref="M:Ipfs.HexString.Encode(System.Byte[],System.String)"/> and <see cref="M:Ipfs.HexString.Decode(System.String)"/>.  Adds the extension method <see cref="M:Ipfs.HexString.ToHexString(System.Byte[],System.String)"/>
+              to encode a byte array and <see cref="M:Ipfs.HexString.ToHexBuffer(System.String)"/> to decode a hexadecimal <see cref="T:System.String"/>.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.HexString.Encode(System.Byte[],System.String)">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent hexadecimal string representation.
+            </summary>
+            <param name="buffer">
+              An array of <see cref="T:System.Byte">8-bit unsigned integers</see>.
+            </param>
+            <param name="format">
+              One of the format specifiers ("G" and "x" for lower-case hex digits, or "X" for the upper-case).
+              The default is "G".
+            </param>
+            <returns>
+              The string representation, in hexadecimal, of the contents of <paramref name="buffer"/>.  
+            </returns>
+        </member>
+        <member name="M:Ipfs.HexString.ToHexString(System.Byte[],System.String)">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent hexadecimal string representation.
+            </summary>
+            <param name="buffer">
+              An array of <see cref="T:System.Byte">8-bit unsigned integers</see>.
+            </param>
+            <param name="format">
+              One of the format specifiers ("G" and "x" for lower-case hex digits, or "X" for the upper-case).
+              The default is "G".
+            </param>
+            <returns>
+              The string representation, in hexadecimal, of the contents of <paramref name="buffer"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.HexString.Decode(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as hexadecimal digits, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The hexadecimal string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.HexString.ToHexBuffer(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data as a hexadecimal string, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The hexadecimal string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.IDataBlock">
+            <summary>
+              Some data that is stored in IPFS.
+            </summary>
+            <remarks>
+              A <b>DataBlock</b> has an <see cref="P:Ipfs.IDataBlock.Id">unique ID</see>
+              and some data (<see cref="P:Ipfs.IDataBlock.DataBytes"/> 
+              or <see cref="P:Ipfs.IDataBlock.DataStream"/>).
+              <para>
+              It is useful to talk about them as "blocks" in Bitswap 
+              and other things that do not care about what is being stored.
+              </para>
+            </remarks>
+            <seealso cref="T:Ipfs.IMerkleNode`1"/>
+        </member>
+        <member name="P:Ipfs.IDataBlock.DataBytes">
+            <summary>
+              Contents as a byte array.
+            </summary>
+            <remarks>
+              It is never <b>null</b>.
+            </remarks>
+            <value>
+              The contents as a sequence of bytes.
+            </value>
+        </member>
+        <member name="P:Ipfs.IDataBlock.DataStream">
+            <summary>
+              Contents as a stream of bytes.
+            </summary>
+            <value>
+              The contents as a stream of bytes.
+            </value>
+        </member>
+        <member name="P:Ipfs.IDataBlock.Id">
+            <summary>
+              The unique ID of the data.
+            </summary>
+            <value>
+              A <see cref="T:Ipfs.Cid"/> of the content.
+            </value>
+        </member>
+        <member name="P:Ipfs.IDataBlock.Size">
+            <summary>
+              The size (in bytes) of the data.
+            </summary>
+            <value>Number of bytes.</value>
+        </member>
+        <member name="T:Ipfs.IFileSystemLink">
+            <summary>
+               A link to another file system node in IPFS.
+            </summary>
+        </member>
+        <member name="P:Ipfs.IFileSystemLink.IsDirectory">
+            <summary>
+              Determines if the link is a directory (folder).
+            </summary>
+            <value>
+              <b>true</b> if the link is a directory; Otherwise <b>false</b>,
+              the link is some type of a file.
+            </value>
+        </member>
+        <member name="T:Ipfs.IFileSystemNode">
+            <summary>
+              A Directed Acyclic Graph (DAG) for IPFS file system node.
+            </summary>
+        </member>
+        <member name="P:Ipfs.IFileSystemNode.IsDirectory">
+            <summary>
+              Determines if the node is a directory (folder).
+            </summary>
+            <value>
+              <b>true</b> if the node is a directory; Otherwise <b>false</b>,
+              it is some type of a file.
+            </value>
+        </member>
+        <member name="T:Ipfs.IKey">
+            <summary>
+              Information about a cryptographic key.
+            </summary>
+        </member>
+        <member name="P:Ipfs.IKey.Id">
+            <summary>
+              Unique identifier.
+            </summary>
+            <value>
+              The <see cref="T:Ipfs.MultiHash"/> of the key's public key.
+            </value>
+        </member>
+        <member name="P:Ipfs.IKey.Name">
+            <summary>
+              The locally assigned name to the key.
+            </summary>
+            <value>
+              The name is only unique within the local peer node. The
+              <see cref="P:Ipfs.IKey.Id"/> is universally unique.
+            </value>
+        </member>
+        <member name="T:Ipfs.ILinkedNode">
+            <summary>
+              InterPlanetary Linked Data.
+            </summary>
+            <remarks>
+              <note>Not yet ready for prime time.</note>
+            </remarks>
+            <seealso href="https://github.com/ipld"/>
+        </member>
+        <member name="T:Ipfs.IMerkleLink">
+            <summary>
+              A link to another node in IPFS.
+            </summary>
+        </member>
+        <member name="P:Ipfs.IMerkleLink.Name">
+            <summary>
+              A name associated with the linked node.
+            </summary>
+            <value>A <see cref="T:System.String"/> or <b>null</b>.</value>
+            <remarks>
+              <note type="warning">
+              IPFS considers a <b>null</b> name different from a <see cref="F:System.String.Empty"/>
+              name;
+              </note>
+            </remarks>
+        </member>
+        <member name="P:Ipfs.IMerkleLink.Id">
+            <summary>
+              The unique ID of the link.
+            </summary>
+            <value>
+              A <see cref="T:Ipfs.Cid"/> of the content.
+            </value>
+        </member>
+        <member name="P:Ipfs.IMerkleLink.Size">
+            <summary>
+              The serialised size (in bytes) of the linked node.
+            </summary>
+            <value>Number of bytes.</value>
+        </member>
+        <member name="T:Ipfs.IMerkleNode`1">
+            <summary>
+              A Directed Acyclic Graph (DAG) in IPFS.
+            </summary>
+            <remarks>
+              A <b>MerkleNode</b> has a sequence of navigable <see cref="P:Ipfs.IMerkleNode`1.Links"/>
+              and some data (<see cref="P:Ipfs.IDataBlock.DataBytes"/> 
+              or <see cref="P:Ipfs.IDataBlock.DataStream"/>).
+            </remarks>
+            <typeparam name="Link">
+              The type of <see cref="T:Ipfs.IMerkleLink"/> used by this node.
+            </typeparam>
+            <seealso href="https://en.wikipedia.org/wiki/Directed_acyclic_graph"/>
+            <seealso href="https://github.com/ipfs/specs/tree/master/merkledag"/>
+        </member>
+        <member name="P:Ipfs.IMerkleNode`1.Links">
+            <summary>
+              Links to other nodes.
+            </summary>
+            <value>
+              A sequence of <typeparamref name="Link"/>.
+            </value>
+            <remarks>
+              It is never <b>null</b>.
+              <para>
+              The links are sorted ascending by <see cref="P:Ipfs.IMerkleLink.Name"/>. A <b>null</b>
+              name is compared as "".
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.IMerkleNode`1.ToLink(System.String)">
+            <summary>
+              Returns a link to the node.
+            </summary>
+            <param name="name">
+              A <see cref="P:Ipfs.IMerkleLink.Name"/> for the link; defaults to "".
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.IMerkleLink"/> to the node.
+            </returns>
+        </member>
+        <member name="T:Ipfs.IPublishedMessage">
+            <summary>
+              A published message.
+            </summary>
+            <remarks>
+              The <see cref="T:Ipfs.CoreApi.IPubSubApi"/> is used to publish and subsribe to a message.
+            </remarks>
+        </member>
+        <member name="P:Ipfs.IPublishedMessage.Sender">
+            <summary>
+              The sender of the message.
+            </summary>
+            <value>
+              The peer that sent the message.
+            </value>
+        </member>
+        <member name="P:Ipfs.IPublishedMessage.Topics">
+            <summary>
+              The topics of the message.
+            </summary>
+            <value>
+              All topics related to this message.
+            </value>
+        </member>
+        <member name="P:Ipfs.IPublishedMessage.SequenceNumber">
+            <summary>
+              The sequence number of the message.
+            </summary>
+            <value>
+              A sender unique id for the message.
+            </value>
+        </member>
+        <member name="T:Ipfs.MultiAddress">
+            <summary>
+              A standard way to represent a networks address that supports multiple network protocols.
+            </summary>
+            <remarks>
+              A multi address emphasizes explicitness, self-description, and
+              portability. It allows applications to treat addresses as opaque tokens
+               which avoids making assumptions about the address representation (e.g. length).
+              <para>
+              A multi address is represented as a series of protocol codes and values pairs.  For example,
+              an IPFS file at a sepcific address over ipv4 and tcp is 
+              "/ip4/10.1.10.10/tcp/29087/ipfs/QmVcSqVEsvm5RR9mBLjwpb2XjFVn5bPdPL69mL8PH45pPC".
+              </para>
+              <para>
+              Value type equality is implemented.
+              </para>
+            </remarks>
+            <seealso href="https://github.com/jbenet/multiaddr"/>
+        </member>
+        <member name="M:Ipfs.MultiAddress.#ctor">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiAddress"/> class.
+            </summary>
+        </member>
+        <member name="P:Ipfs.MultiAddress.Protocols">
+            <summary>
+              The components of the <b>MultiAddress</b>.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiAddress.#ctor(System.String)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiAddress"/> class with the string.
+            </summary>
+            <param name="s">
+              The string representation of a multi address, such as "/ip4/1270.0.01/tcp/5001".
+            </param>
+        </member>
+        <member name="M:Ipfs.MultiAddress.#ctor(System.IO.Stream)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiAddress"/> class from the
+              specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              A <see cref="T:System.IO.Stream"/> containing the binary representation of a
+              <b>MultiAddress</b>.
+            </param>
+            <remarks>
+              Reads the binary representation of <see cref="T:Ipfs.MultiAddress"/> from the <paramref name="stream"/>.
+              <para>
+              The binary representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.#ctor(System.Byte[])">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiAddress"/> class from the
+              specified byte array.
+            </summary>
+            <param name="buffer">(
+              A byte array containing the binary representation of a
+              <b>MultiAddress</b>.
+            </param>
+            <remarks>
+              Reads the binary representation of <see cref="T:Ipfs.MultiAddress"/> from the <paramref name="buffer"/>.
+              <para>
+              The binary representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.Write(System.IO.Stream)">
+            <summary>
+              Writes the binary representation to the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to write to.
+            </param>
+            <remarks>
+              The binary representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.Write(Google.Protobuf.CodedOutputStream)">
+            <summary>
+              Writes the binary representation to the specified <see cref="T:Google.Protobuf.CodedOutputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedOutputStream"/> to write to.
+            </param>
+            <remarks>
+              The binary representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.Write(System.IO.TextWriter)">
+            <summary>
+              Writes the string representation to the specified <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.TextWriter"/> to write to.
+            </param>
+            <remarks>
+              The string representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.Read(System.IO.Stream)">
+            <summary>
+              Reads the binary representation of the the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to read from.
+            </param>
+            <remarks>
+              The binary representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.Read(Google.Protobuf.CodedInputStream)">
+            <summary>
+              Reads the binary representation of the specified <see cref="T:Google.Protobuf.CodedInputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedInputStream"/> to read from.
+            </param>
+            <remarks>
+              The binary representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.Read(System.IO.TextReader)">
+            <summary>
+              Reads the string representation from the specified <see cref="T:System.IO.TextReader"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.TextReader"/> to read from
+            </param>
+            <remarks>
+              The string representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.MultiAddress.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.MultiAddress.Equals(Ipfs.MultiAddress)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.MultiAddress.op_Equality(Ipfs.MultiAddress,Ipfs.MultiAddress)">
+            <summary>
+              Value equality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiAddress.op_Inequality(Ipfs.MultiAddress,Ipfs.MultiAddress)">
+            <summary>
+              Value inequality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiAddress.ToString">
+            <summary>
+              A sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see> that is readable
+              to a human.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiAddress.ToArray">
+            <summary>
+              Returns the IPFS binary representation as a byte array.
+            </summary>
+            <returns>
+              A byte array.
+            </returns>
+            <remarks>
+              The binary representation is a sequence of <see cref="T:Ipfs.NetworkProtocol">network protocols</see>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiAddress.op_Implicit(System.String)~Ipfs.MultiAddress">
+            <summary>
+              Implicit casting of a <see cref="T:System.String"/> to a <see cref="T:Ipfs.MultiAddress"/>.
+            </summary>
+            <param name="s">The string representation of a <see cref="T:Ipfs.MultiAddress"/>.</param>
+            <returns>A new <see cref="T:Ipfs.MultiAddress"/>.</returns>
+        </member>
+        <member name="T:Ipfs.MultiBase">
+            <summary>
+              Self identifying base encodings.
+            </summary>
+            <remarks>
+              <b>MultiBase</b> is a protocol for distinguishing base encodings 
+              and other simple string encodings.  
+              See the <see cref="T:Ipfs.Registry.MultiBaseAlgorithm">registry</see> for supported algorithms.
+            </remarks>
+            <seealso href="https://github.com/multiformats/multibase"/>
+        </member>
+        <member name="F:Ipfs.MultiBase.DefaultAlgorithmName">
+            <summary>
+              The default multi-base algorithm is "base58btc".
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiBase.GetAlgorithm(System.String)">
+            <summary>
+              Gets the <see cref="T:Ipfs.Registry.MultiBaseAlgorithm"/> with the specified IPFS multi-hash name.
+            </summary>
+            <param name="name">
+              The name of an algorithm, see 
+              <see href="https://github.com/multiformats/multibase/blob/master/multibase.csv"/> for
+              for IPFS defined names.
+            </param>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">
+              When <paramref name="name"/> is not registered.
+            </exception>
+        </member>
+        <member name="M:Ipfs.MultiBase.Encode(System.Byte[],System.String)">
+            <summary>
+              Converts an array of 8-bit unsigned integers to its equivalent string representation.
+            </summary>
+            <param name="bytes">
+              An array of 8-bit unsigned integers.
+            </param>
+            <param name="algorithmName">
+              The name of the multi-base algorithm to use. See <see href="https://github.com/multiformats/multibase/blob/master/multibase.csv"/>.
+            </param>
+            <returns>
+              A <see cref="T:System.String"/> starting with the algorithm's <see cref="P:Ipfs.Registry.MultiBaseAlgorithm.Code"/> and
+              followed by the encoded string representation of the <paramref name="bytes"/>.
+            </returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">
+              When <paramref name="algorithmName"/> is not registered.
+            </exception>
+        </member>
+        <member name="M:Ipfs.MultiBase.Decode(System.String)">
+            <summary>
+              Converts the specified <see cref="T:System.String"/>, which encodes binary data, 
+              to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="s">
+              The multi-base string to convert.
+            </param>
+            <returns>
+              An array of 8-bit unsigned integers that is equivalent to <paramref name="s"/>.
+            </returns>
+            <exception cref="T:System.FormatException">
+              When the <paramref name="s"/> can not be decoded.
+            </exception>
+        </member>
+        <member name="T:Ipfs.MultiCodec">
+            <summary>
+              Wraps other formats with a tiny bit of self-description.
+            </summary>
+            <remarks>
+              <b>MultiCode</b> is a self-describing multiformat, it wraps other formats with a 
+              tiny bit of self-description. A multicodec identifier is both a varint and the code 
+              identifying the following data.
+              <para>
+              Adds the following extension methods to <see cref="T:System.IO.Stream"/>
+               <list type="bullet">
+                 <item><description>ReadMultiCodec</description></item>
+                 <item><description><see cref="M:Ipfs.MultiCodec.WriteMultiCodec(System.IO.Stream,System.String)"/></description></item>
+               </list>
+              </para>
+            </remarks>
+            <seealso href="https://github.com/multiformats/multicodec"/>
+            <seealso cref="T:Ipfs.Registry.Codec"/>
+        </member>
+        <member name="M:Ipfs.MultiCodec.ReadMultiCodec(System.IO.Stream)">
+            <summary>
+              Reads a <see cref="T:Ipfs.Registry.Codec"/> from the <see cref="T:System.IO.Stream"/>. 
+            </summary>
+            <param name="stream">
+              A multicodec encoded <see cref="T:System.IO.Stream"/>.
+            </param>
+            <returns>The codec.</returns>
+            <remarks>
+              If the <b>code</b> does not exist, a new <see cref="T:Ipfs.Registry.Codec"/> is
+              registered with the <see cref="P:Ipfs.Registry.Codec.Name"/> "codec-x"; where
+              'x' is the code's decimal represention.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiCodec.ReadMultiCodec(Google.Protobuf.CodedInputStream)">
+            <summary>
+              Reads a <see cref="T:Ipfs.Registry.Codec"/> from the <see cref="T:Google.Protobuf.CodedInputStream"/>. 
+            </summary>
+            <param name="stream">
+              A multicodec encoded <see cref="T:Google.Protobuf.CodedInputStream"/>.
+            </param>
+            <returns>The codec.</returns>
+            <remarks>
+              If the <b>code</b> does not exist, a new <see cref="T:Ipfs.Registry.Codec"/> is
+              registered with the <see cref="P:Ipfs.Registry.Codec.Name"/> "codec-x"; where
+              'x' is the code's decimal represention.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiCodec.WriteMultiCodec(System.IO.Stream,System.String)">
+            <summary>
+              Writes a <see cref="T:Ipfs.Registry.Codec"/> to the <see cref="T:System.IO.Stream"/>. 
+            </summary>
+            <param name="stream">
+              A multicodec encoded <see cref="T:System.IO.Stream"/>.
+            </param>
+            <param name="name">
+              The <see cref="P:Ipfs.Registry.Codec.Name"/>.
+            </param>
+            <remarks>
+              Writes the <see cref="T:Ipfs.Varint"/> of the <see cref="P:Ipfs.Registry.Codec.Code"/> to
+              the <paramref name="stream"/>.
+            </remarks>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">
+              When <paramref name="name"/> is not registered.
+            </exception>
+        </member>
+        <member name="T:Ipfs.MultiHash">
+            <summary> 
+              A protocol for differentiating outputs from various well-established cryptographic hash functions, 
+              addressing size + encoding considerations.
+            </summary>
+            <remarks>
+              See the <see cref="T:Ipfs.Registry.HashingAlgorithm">registry</see> for supported algorithms.
+            </remarks>
+            <seealso href="https://github.com/jbenet/multihash"/>
+        </member>
+        <member name="F:Ipfs.MultiHash.DefaultAlgorithmName">
+            <summary>
+              The default hashing algorithm is "sha2-256".
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiHash.GetHashAlgorithm(System.String)">
+            <summary>
+              Gets the <see cref="T:System.Security.Cryptography.HashAlgorithm"/> with the specified IPFS multi-hash name.
+            </summary>
+            <param name="name">
+              The name of a hashing algorithm, see <see href="https://github.com/multiformats/multihash/blob/master/hashtable.csv"/>
+              for IPFS defined names.
+            </param>
+        </member>
+        <member name="F:Ipfs.MultiHash.UnknownHashingAlgorithm">
+            <summary>
+              Occurs when an unknown hashing algorithm number is parsed.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiHash.#ctor(System.String,System.Byte[])">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiHash"/> class with the
+              specified <see cref="T:Ipfs.Registry.HashingAlgorithm">Algorithm name</see> and <see cref="P:Ipfs.MultiHash.Digest"/> value.
+            </summary>
+            <param name="algorithmName">
+              A valid IPFS hashing algorithm name, e.g. "sha2-256" or "sha2-512".
+            </param>
+            <param name="digest">
+               The digest value as a byte array.
+            </param>
+        </member>
+        <member name="M:Ipfs.MultiHash.#ctor(System.IO.Stream)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiHash"/> class from the
+              specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              A <see cref="T:System.IO.Stream"/> containing the binary representation of the
+              <b>MultiHash</b>.
+            </param>
+            <remarks>
+              Reads the binary representation of <see cref="T:Ipfs.MultiHash"/> from the <paramref name="stream"/>.
+              <para>
+              The binary representation is a <see cref="T:Ipfs.Varint"/> <see cref="P:Ipfs.Registry.HashingAlgorithm.Code"/>,
+              <see cref="T:Ipfs.Varint"/> <see cref="P:Ipfs.Registry.HashingAlgorithm.DigestSize"/> followed by the <see cref="P:Ipfs.MultiHash.Digest"/>.
+              </para>
+              <para>
+              When an unknown <see cref="P:Ipfs.Registry.HashingAlgorithm.Code">hashing algorithm number</see> is encountered
+              a new hashing algorithm is <see cref="M:Ipfs.Registry.HashingAlgorithm.Register(System.String,System.Int32,System.Int32,System.Func{System.Security.Cryptography.HashAlgorithm})">registered</see>.  This new algorithm does not support
+              matching nor computing a hash.
+              This behaviour allows parsing of any well formed <see cref="T:Ipfs.MultiHash"/> even when
+              the hashing algorithm is unknown.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiHash.#ctor(Google.Protobuf.CodedInputStream)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiHash"/> class from the
+              specified <see cref="T:Google.Protobuf.CodedInputStream"/>.
+            </summary>
+            <param name="stream">
+              A <see cref="T:Google.Protobuf.CodedInputStream"/> containing the binary representation of the
+              <b>MultiHash</b>.
+            </param>
+            <remarks>
+              Reads the binary representation of <see cref="T:Ipfs.MultiHash"/> from the <paramref name="stream"/>.
+              <para>
+              The binary representation is a <see cref="T:Ipfs.Varint"/> <see cref="P:Ipfs.Registry.HashingAlgorithm.Code"/>,
+              <see cref="T:Ipfs.Varint"/> <see cref="P:Ipfs.Registry.HashingAlgorithm.DigestSize"/> followed by the <see cref="P:Ipfs.MultiHash.Digest"/>.
+              </para>
+              <para>
+              When an unknown <see cref="P:Ipfs.Registry.HashingAlgorithm.Code">hashing algorithm number</see> is encountered
+              a new hashing algorithm is <see cref="M:Ipfs.Registry.HashingAlgorithm.Register(System.String,System.Int32,System.Int32,System.Func{System.Security.Cryptography.HashAlgorithm})">registered</see>.  This new algorithm does not support
+              matching nor computing a hash.
+              This behaviour allows parsing of any well formed <see cref="T:Ipfs.MultiHash"/> even when
+              the hashing algorithm is unknown.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiHash.#ctor(System.String)">
+            <summary>
+              Creates a new instance of the <see cref="T:Ipfs.MultiHash"/> class from the specified
+              <see cref="T:Ipfs.Base58"/> encoded <see cref="T:System.String"/>.
+            </summary>
+            <param name="s">
+              A <see cref="T:Ipfs.Base58"/> encoded <b>MultiHash</b>.
+            </param>
+            <remarks>
+              <para>
+              When an unknown <see cref="P:Ipfs.Registry.HashingAlgorithm.Code">hashing algorithm number</see> is encountered
+              a new hashing algorithm is <see cref="M:Ipfs.Registry.HashingAlgorithm.Register(System.String,System.Int32,System.Int32,System.Func{System.Security.Cryptography.HashAlgorithm})">registered</see>.  This new algorithm does not support
+              matching nor computing a hash.
+              This behaviour allows parsing of any well formed <see cref="T:Ipfs.MultiHash"/> even when
+              the hashing algorithm is unknown.
+              </para>
+            </remarks>
+            <seealso cref="M:Ipfs.MultiHash.ToBase58"/>
+        </member>
+        <member name="M:Ipfs.MultiHash.op_Implicit(System.String)~Ipfs.MultiHash">
+            <summary>
+              Implicit casting of a <see cref="T:System.String"/> to a <see cref="T:Ipfs.MultiHash"/>.
+            </summary>
+            <param name="s">
+              A <see cref="T:Ipfs.Base58"/> encoded <b>MultiHash</b>.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.MultiHash"/>.
+            </returns>
+            <remarks>
+               Equivalent to <code>new MultiHash(s)</code>
+            </remarks>
+        </member>
+        <member name="P:Ipfs.MultiHash.Algorithm">
+            <summary>
+              The hashing algorithm.
+            </summary>
+        </member>
+        <member name="P:Ipfs.MultiHash.Digest">
+            <summary>
+              The hashing algorithm's digest value.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiHash.Write(System.IO.Stream)">
+            <summary>
+              Writes the binary representation of the multihash to the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to write to.
+            </param>
+            <remarks>
+              The binary representation is a 1-byte <see cref="P:Ipfs.Registry.HashingAlgorithm.Code"/>,
+              1-byte <see cref="P:Ipfs.Registry.HashingAlgorithm.DigestSize"/> followed by the <see cref="P:Ipfs.MultiHash.Digest"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiHash.Write(Google.Protobuf.CodedOutputStream)">
+            <summary>
+              Writes the binary representation of the multihash to the specified <see cref="T:Google.Protobuf.CodedOutputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedOutputStream"/> to write to.
+            </param>
+            <remarks>
+              The binary representation is a <see cref="T:Ipfs.Varint"/> <see cref="P:Ipfs.Registry.HashingAlgorithm.Code"/>,
+              <see cref="T:Ipfs.Varint"/> <see cref="P:Ipfs.Registry.HashingAlgorithm.DigestSize"/> followed by the <see cref="P:Ipfs.MultiHash.Digest"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiHash.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.MultiHash.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.MultiHash.Equals(Ipfs.MultiHash)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.MultiHash.op_Equality(Ipfs.MultiHash,Ipfs.MultiHash)">
+            <summary>
+              Value equality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiHash.op_Inequality(Ipfs.MultiHash,Ipfs.MultiHash)">
+            <summary>
+              Value inequality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.MultiHash.ToString">
+            <summary>
+              Returns the <see cref="T:Ipfs.Base58"/> encoding of the <see cref="T:Ipfs.MultiHash"/>.
+            </summary>
+            <returns>
+              A Base58 representaton of the MultiHash.
+            </returns>
+        </member>
+        <member name="M:Ipfs.MultiHash.ToBase58">
+            <summary>
+              Returns the <see cref="T:Ipfs.Base58"/> encoding of the <see cref="T:Ipfs.MultiHash"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ipfs.MultiHash.ToArray">
+            <summary>
+              Returns the IPFS binary representation as a byte array.
+            </summary>
+            <returns>
+              A byte array.
+            </returns>
+            <remarks>
+              The binary representation is a sequence of <see cref="T:Ipfs.MultiHash"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiHash.Matches(System.Byte[])">
+            <summary>
+              Determines if the data matches the hash.
+            </summary>
+            <param name="data">
+              The data to check.
+            </param>
+            <returns>
+              <b>true</b> if the data matches the <see cref="T:Ipfs.MultiHash"/>; otherwise, <b>false</b>.
+            </returns>
+            <remarks>
+              <b>Matches</b> is used to ensure data integrity.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiHash.Matches(System.IO.Stream)">
+            <summary>
+              Determines if the stream data matches the hash.
+            </summary>
+            <param name="data">
+              The <see cref="T:System.IO.Stream"/> containing the data to check.
+            </param>
+            <returns>
+              <b>true</b> if the data matches the <see cref="T:Ipfs.MultiHash"/>; otherwise, <b>false</b>.
+            </returns>
+            <remarks>
+              <b>Matches</b> is used to ensure data integrity.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.MultiHash.ComputeHash(System.Byte[],System.String)">
+            <summary>
+              Generate the multihash for the specified byte array. 
+            </summary>
+            <param name="data">
+              The byte array containing the data to hash.
+            </param>
+            <param name="algorithmName">
+              The name of the hashing algorithm to use; defaults to <see cref="F:Ipfs.MultiHash.DefaultAlgorithmName"/>.
+            </param>
+            <returns>
+              A <see cref="T:Ipfs.MultiHash"/> for the <paramref name="data"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.MultiHash.ComputeHash(System.IO.Stream,System.String)">
+            <summary>
+              Generate the multihash for the specified <see cref="T:System.IO.Stream"/>. 
+            </summary>
+            <param name="data">
+              The <see cref="T:System.IO.Stream"/> containing the data to hash.
+            </param>
+            <param name="algorithmName">
+              The name of the hashing algorithm to use; defaults to <see cref="F:Ipfs.MultiHash.DefaultAlgorithmName"/>.
+            </param>
+            <returns>
+              A <see cref="T:Ipfs.MultiHash"/> for the <paramref name="data"/>.
+            </returns>
+        </member>
+        <member name="T:Ipfs.UnknownHashingAlgorithmEventArgs">
+            <summary>
+              Provides data for the unknown hashing algorithm event.
+            </summary>
+        </member>
+        <member name="P:Ipfs.UnknownHashingAlgorithmEventArgs.Algorithm">
+            <summary>
+              The <see cref="T:Ipfs.Registry.HashingAlgorithm"/> that is defined for the
+              unknown hashing number.
+            </summary>
+        </member>
+        <member name="T:Ipfs.NetworkProtocol">
+            <summary>
+              Metadata on an IPFS network protocol.
+            </summary>
+        </member>
+        <member name="M:Ipfs.NetworkProtocol.#cctor">
+            <summary>
+              Registers the standard network protocols for IPFS.
+            </summary>
+        </member>
+        <member name="M:Ipfs.NetworkProtocol.Register``1">
+            <summary>
+              Register a network protocol for use.
+            </summary>
+            <typeparam name="T">
+              A <see cref="T:Ipfs.NetworkProtocol"/> to register.
+            </typeparam>
+        </member>
+        <member name="P:Ipfs.NetworkProtocol.Name">
+            <summary>
+              The name of the protocol.
+            </summary>
+        </member>
+        <member name="P:Ipfs.NetworkProtocol.Code">
+            <summary>
+              The IPFS numeric code assigned to the network protocol.
+            </summary>
+        </member>
+        <member name="P:Ipfs.NetworkProtocol.Value">
+            <summary>
+              The string value associated with the protocol.
+            </summary>
+            <remarks>
+              For tcp and udp this is the port number.  This can be <b>null</b> as is the case for http and https.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.NetworkProtocol.WriteValue(Google.Protobuf.CodedOutputStream)">
+            <summary>
+              Writes the binary representation to the specified <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedOutputStream"/> to write to.
+            </param>
+            <remarks>
+              The binary representation of the <see cref="P:Ipfs.NetworkProtocol.Value"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.NetworkProtocol.WriteValue(System.IO.TextWriter)">
+            <summary>
+              Writes the string representation to the specified <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.TextWriter"/> to write to.
+            </param>
+            <remarks>
+              The string representation of the optional <see cref="P:Ipfs.NetworkProtocol.Value"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.NetworkProtocol.ReadValue(Google.Protobuf.CodedInputStream)">
+            <summary>
+              Reads the binary representation from the specified <see cref="T:Google.Protobuf.CodedInputStream"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:Google.Protobuf.CodedOutputStream"/> to read from.
+            </param>
+            <remarks>
+              The binary representation is an option <see cref="P:Ipfs.NetworkProtocol.Value"/>.
+            </remarks>
+        </member>
+        <member name="M:Ipfs.NetworkProtocol.ReadValue(System.IO.TextReader)">
+            <summary>
+              Reads the string representation from the specified <see cref="T:System.IO.TextReader"/>.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.TextReader"/> to read from
+            </param>
+            <remarks>
+              The string representation is "/<see cref="P:Ipfs.NetworkProtocol.Name"/>" followed by 
+              an optional "/<see cref="P:Ipfs.NetworkProtocol.Value"/>".
+            </remarks>
+        </member>
+        <member name="M:Ipfs.NetworkProtocol.ToString">
+            <summary>
+              The <see cref="P:Ipfs.NetworkProtocol.Name"/> and optional <see cref="P:Ipfs.NetworkProtocol.Value"/> of the network protocol.
+            </summary>
+        </member>
+        <member name="T:Ipfs.Peer">
+            <summary>
+              A node on the IPFS network.
+            </summary>
+        </member>
+        <member name="P:Ipfs.Peer.Id">
+            <summary>
+              Universally unique identifier.
+            </summary>
+            <value>
+              This is the <see cref="T:Ipfs.MultiHash"/> of the peer's <see cref="P:Ipfs.Peer.PublicKey"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.Peer.PublicKey">
+            <summary>
+              The public key of the node.
+            </summary>
+            <value>
+              The base 64 encoding of the node's public key.  The default is <b>null</b>
+            </value>
+        </member>
+        <member name="P:Ipfs.Peer.Addresses">
+            <summary>
+              The multiple addresses of the node.
+            </summary>
+            <value>
+              Where the peer can be found.  The default is an empty sequence.
+            </value>
+        </member>
+        <member name="P:Ipfs.Peer.AgentVersion">
+            <summary>
+              The name and version of the IPFS software.
+            </summary>
+            <value>
+              For example "go-ipfs/0.4.17/".
+            </value>
+            <remarks>
+              There is no specification that describes the agent version string.  The default
+              is "unknown/0.0".
+            </remarks>
+        </member>
+        <member name="P:Ipfs.Peer.ProtocolVersion">
+            <summary>
+             The name and version of the supported IPFS protocol.
+            </summary>
+            <value>
+              For example "ipfs/0.1.0".
+            </value>
+            <remarks>
+              There is no specification that describes the protocol version string. The default
+              is "unknown/0.0".
+            </remarks>
+        </member>
+        <member name="P:Ipfs.Peer.ConnectedAddress">
+            <summary>
+              The <see cref="T:Ipfs.MultiAddress"/> that the peer is connected on.
+            </summary>
+            <value>
+              <b>null</b> when the peer is not connected to.
+            </value>
+        </member>
+        <member name="P:Ipfs.Peer.Latency">
+            <summary>
+            The round-trip time it takes to get data from the peer.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Peer.IsValid">
+            <summary>
+              Determines if the information on the peer is valid.
+            </summary>
+            <returns>
+              <b>true</b> if all validation rules pass; otherwise <b>false</b>.
+            </returns>
+            <remarks>
+               Verifies that
+               <list type="bullet">
+                 <item><description>The <see cref="P:Ipfs.Peer.Id"/> is defined</description></item>
+                 <item><description>The <see cref="P:Ipfs.Peer.Id"/> is a hash of the <see cref="P:Ipfs.Peer.PublicKey"/></description></item>
+               </list>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Peer.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Peer.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Peer.Equals(Ipfs.Peer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ipfs.Peer.op_Equality(Ipfs.Peer,Ipfs.Peer)">
+            <summary>
+              Value equality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Peer.op_Inequality(Ipfs.Peer,Ipfs.Peer)">
+            <summary>
+              Value inequality.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Peer.ToString">
+            <summary>
+              Returns the <see cref="T:Ipfs.Base58"/> encoding of the <see cref="P:Ipfs.Peer.Id"/>.
+            </summary>
+            <returns>
+              A Base58 representaton of the peer.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Peer.op_Implicit(System.String)~Ipfs.Peer">
+            <summary>
+              Implicit casting of a <see cref="T:System.String"/> to a <see cref="T:Ipfs.Peer"/>.
+            </summary>
+            <param name="s">
+              A <see cref="T:Ipfs.Base58"/> encoded <see cref="P:Ipfs.Peer.Id"/>.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Peer"/>.
+            </returns>
+            <remarks>
+               Equivalent to <code>new Peer { Id = s }</code>
+            </remarks>
+        </member>
+        <member name="T:Ipfs.Registry.Codec">
+            <summary>
+              Metadata for IPFS multi-codec.
+            </summary>
+            <remarks>
+              IPFS assigns a unique <see cref="P:Ipfs.Registry.Codec.Name"/> and <see cref="P:Ipfs.Registry.Codec.Code"/> to codecs.
+              See <see href="https://github.com/multiformats/multicodec/blob/master/table.csv">table.csv</see> 
+              for the currently defined multi-codecs.
+            </remarks>
+            <seealso href="https://github.com/multiformats/multicodec"/>
+        </member>
+        <member name="M:Ipfs.Registry.Codec.#cctor">
+            <summary>
+              Register the standard multi-codecs for IPFS.
+            </summary>
+            <seealso href="https://github.com/multiformats/multicodec/blob/master/table.csv"/>
+        </member>
+        <member name="P:Ipfs.Registry.Codec.Name">
+            <summary>
+              The name of the codec.
+            </summary>
+            <value>
+              A unique name.
+            </value>
+        </member>
+        <member name="P:Ipfs.Registry.Codec.Code">
+            <summary>
+              The IPFS code assigned to the codec.
+            </summary>
+            <value>
+              Valid codes at <see href="https://github.com/multiformats/multicodec/blob/master/table.csv"/>.
+            </value>
+        </member>
+        <member name="M:Ipfs.Registry.Codec.#ctor">
+            <summary>
+              Use <see cref="M:Ipfs.Registry.Codec.Register(System.String,System.Int32)"/> to create a new instance of a <see cref="T:Ipfs.Registry.Codec"/>.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Registry.Codec.ToString">
+            <summary>
+              The <see cref="P:Ipfs.Registry.Codec.Name"/> of the codec.
+            </summary>
+            <value>
+              The <see cref="P:Ipfs.Registry.Codec.Name"/> of the codec.
+            </value>
+        </member>
+        <member name="M:Ipfs.Registry.Codec.Register(System.String,System.Int32)">
+            <summary>
+              Register a new IPFS codec.
+            </summary>
+            <param name="name">
+              The name of the codec.
+            </param>
+            <param name="code">
+              The IPFS code assigned to the codec.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Registry.Codec"/>.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+              When the <paramref name="name"/> or <paramref name="code"/> is already defined.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+              When the <paramref name="name"/> is null or empty.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Registry.Codec.Deregister(Ipfs.Registry.Codec)">
+            <summary>
+              Remove an IPFS codec from the registry.
+            </summary>
+            <param name="codec">
+              The <see cref="T:Ipfs.Registry.Codec"/> to remove.
+            </param>
+        </member>
+        <member name="P:Ipfs.Registry.Codec.All">
+            <summary>
+              A sequence consisting of all codecs.
+            </summary>
+            <value>
+              All the registered codecs.
+            </value>
+        </member>
+        <member name="T:Ipfs.Registry.HashingAlgorithm">
+            <summary>
+              Metadata and implemetations of an IPFS hashing algorithm.
+            </summary>
+            <remarks>
+              IPFS assigns a unique <see cref="P:Ipfs.Registry.HashingAlgorithm.Name"/> and <see cref="P:Ipfs.Registry.HashingAlgorithm.Code"/> to hashing algorithm.
+              See <see href="https://github.com/multiformats/multihash/blob/master/hashtable.csv"/> for
+              the currently defined hashing algorithms.
+              <para>
+              These algorithms are supported: sha1, sha2-256, sha2-512, keccak-224, keccak-256,
+              keccak-384, keccak-512, sha3-224, sha3-256, sha3-384, sha3-512,
+              shake-128 and shake-256.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Registry.HashingAlgorithm.#cctor">
+            <summary>
+              Register the standard hash algorithms for IPFS.
+            </summary>
+            <seealso href="https://github.com/multiformats/multihash/blob/master/hashtable.csv"/>
+        </member>
+        <member name="P:Ipfs.Registry.HashingAlgorithm.Name">
+            <summary>
+              The name of the algorithm.
+            </summary>
+            <value>
+              A unique name.
+            </value>
+        </member>
+        <member name="P:Ipfs.Registry.HashingAlgorithm.Code">
+            <summary>
+              The IPFS number assigned to the hashing algorithm.
+            </summary>
+            <value>
+              Valid hash codes at <see href="https://github.com/multiformats/multihash/blob/master/hashtable.csv">hashtable.csv</see>.
+            </value>
+        </member>
+        <member name="P:Ipfs.Registry.HashingAlgorithm.DigestSize">
+            <summary>
+              The size, in bytes, of the digest value.
+            </summary>
+            <value>
+              The digest value size in bytes.
+            </value>
+        </member>
+        <member name="P:Ipfs.Registry.HashingAlgorithm.Hasher">
+            <summary>
+              Returns a cryptographic hash algorithm that can compute
+              a hash (digest).
+            </summary>
+        </member>
+        <member name="M:Ipfs.Registry.HashingAlgorithm.#ctor">
+            <summary>
+              Use <see cref="M:Ipfs.Registry.HashingAlgorithm.Register(System.String,System.Int32,System.Int32,System.Func{System.Security.Cryptography.HashAlgorithm})"/> to create a new instance of a <see cref="T:Ipfs.Registry.HashingAlgorithm"/>.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Registry.HashingAlgorithm.ToString">
+            <summary>
+              The <see cref="P:Ipfs.Registry.HashingAlgorithm.Name"/> of the hashing algorithm.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Registry.HashingAlgorithm.Register(System.String,System.Int32,System.Int32,System.Func{System.Security.Cryptography.HashAlgorithm})">
+            <summary>
+              Register a new IPFS hashing algorithm.
+            </summary>
+            <param name="name">
+              The name of the algorithm.
+            </param>
+            <param name="code">
+              The IPFS number assigned to the hashing algorithm.
+            </param>
+            <param name="digestSize">
+              The size, in bytes, of the digest value.
+            </param>
+            <param name="hasher">
+              A <c>Func</c> that returns a <see cref="T:System.Security.Cryptography.HashAlgorithm"/>.  If not specified, then a <c>Func</c> is created to
+              throw a <see cref="T:System.NotImplementedException"/>.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Registry.HashingAlgorithm"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Registry.HashingAlgorithm.Deregister(Ipfs.Registry.HashingAlgorithm)">
+            <summary>
+              Remove an IPFS hashing algorithm from the registry.
+            </summary>
+            <param name="algorithm">
+              The <see cref="T:Ipfs.Registry.HashingAlgorithm"/> to remove.
+            </param>
+        </member>
+        <member name="P:Ipfs.Registry.HashingAlgorithm.All">
+            <summary>
+              A sequence consisting of all <see cref="T:Ipfs.Registry.HashingAlgorithm">hashing algorithms</see>.
+            </summary>
+        </member>
+        <member name="T:Ipfs.Registry.MultiBaseAlgorithm">
+            <summary>
+              Metadata and implemetations of an IPFS multi-base algorithm.
+            </summary>
+            <remarks>
+              IPFS assigns a unique <see cref="P:Ipfs.Registry.MultiBaseAlgorithm.Name"/> and <see cref="P:Ipfs.Registry.MultiBaseAlgorithm.Code"/> to multi-base algorithm.
+              See <see href="https://github.com/multiformats/multibase/blob/master/multibase.csv"/> for
+              the currently defined multi-base algorithms.
+              <para>
+              These algorithms are supported: base58btc, base58flickr, base64,
+              base64pad, base64url, base16, base32, base32pad, base32hex
+              and base32hexpad.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Ipfs.Registry.MultiBaseAlgorithm.#cctor">
+            <summary>
+              Register the standard multi-base algorithms for IPFS.
+            </summary>
+            <seealso href="https://github.com/multiformats/multibase/blob/master/multibase.csv"/>
+        </member>
+        <member name="P:Ipfs.Registry.MultiBaseAlgorithm.Name">
+            <summary>
+              The name of the algorithm.
+            </summary>
+            <value>
+              A unique name.
+            </value>
+        </member>
+        <member name="P:Ipfs.Registry.MultiBaseAlgorithm.Code">
+            <summary>
+              The IPFS code assigned to the algorithm.
+            </summary>
+            <value>
+              Valid codes at <see href="https://github.com/multiformats/multibase/blob/master/multibase.csv"/>.
+            </value>
+        </member>
+        <member name="P:Ipfs.Registry.MultiBaseAlgorithm.Encode">
+            <summary>
+              Returns a function that can return a string from a byte array.
+            </summary>
+        </member>
+        <member name="P:Ipfs.Registry.MultiBaseAlgorithm.Decode">
+            <summary>
+              Returns a function that can return a byte array from a string.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Registry.MultiBaseAlgorithm.#ctor">
+            <summary>
+              Use <see cref="M:Ipfs.Registry.MultiBaseAlgorithm.Register(System.String,System.Char,System.Func{System.Byte[],System.String},System.Func{System.String,System.Byte[]})"/> to create a new instance of a <see cref="T:Ipfs.Registry.MultiBaseAlgorithm"/>.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Registry.MultiBaseAlgorithm.ToString">
+            <summary>
+              The <see cref="P:Ipfs.Registry.MultiBaseAlgorithm.Name"/> of the algorithm.
+            </summary>
+        </member>
+        <member name="M:Ipfs.Registry.MultiBaseAlgorithm.Register(System.String,System.Char,System.Func{System.Byte[],System.String},System.Func{System.String,System.Byte[]})">
+            <summary>
+              Register a new IPFS algorithm.
+            </summary>
+            <param name="name">
+              The name of the algorithm.
+            </param>
+            <param name="code">
+              The IPFS code assigned to thealgorithm.
+            </param>
+            <param name="encode">
+              A <c>Func</c> to encode a byte array.  If not specified, then a <c>Func</c> is created to
+              throw a <see cref="T:System.NotImplementedException"/>.
+            </param>
+            <param name="decode">
+              A <c>Func</c> to decode a string.  If not specified, then a <c>Func</c> is created to
+              throw a <see cref="T:System.NotImplementedException"/>.
+            </param>
+            <returns>
+              A new <see cref="T:Ipfs.Registry.MultiBaseAlgorithm"/>.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Registry.MultiBaseAlgorithm.Deregister(Ipfs.Registry.MultiBaseAlgorithm)">
+            <summary>
+              Remove an IPFS algorithm from the registry.
+            </summary>
+            <param name="algorithm">
+              The <see cref="T:Ipfs.Registry.MultiBaseAlgorithm"/> to remove.
+            </param>
+        </member>
+        <member name="P:Ipfs.Registry.MultiBaseAlgorithm.All">
+            <summary>
+              A sequence consisting of all algorithms.
+            </summary>
+        </member>
+        <member name="T:Ipfs.Varint">
+            <summary>
+              A codec for a variable integer.
+            </summary>
+            <remarks>
+              A <b>VarInt</b> is encoded in network byte order (Big Endian). Each byte (except the last) contains 7 bits
+              of information with the most significant bit set to 1.  The last byte has MSB set to 0.
+              <para>
+              Negative values are not allowed.  When encountered a <see cref="T:System.NotSupportedException"/> is thrown.
+              </para>
+              <para>
+              Adds the following extension methods to <see cref="T:System.IO.Stream"/>
+               <list type="bullet">
+                 <item><description><see cref="M:Ipfs.Varint.ReadVarint32(System.IO.Stream)"/></description></item>
+                 <item><description><see cref="M:Ipfs.Varint.ReadVarint64(System.IO.Stream)"/></description></item>
+                 <item><description><see cref="M:Ipfs.Varint.WriteVarint(System.IO.Stream,System.Int64)"/></description></item>
+               </list>
+              </para>
+            </remarks>
+            <seealso href="https://developers.google.com/protocol-buffers/docs/encoding#varints"/>
+        </member>
+        <member name="M:Ipfs.Varint.Encode(System.Int64)">
+            <summary>
+              Convert the value to its variable integer encoding.
+            </summary>
+            <param name="value">
+              The value to convert.
+            </param>
+            <returns>
+              A byte array representing the <paramref name="value"/> as
+              a variable integer.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Varint.RequiredBytes(System.Int64)">
+            <summary>
+              The number of bytes required to encode the value.
+            </summary>
+            <param name="value">A positive integer value.</param>
+            <returns>
+              The number of bytes required to encode the value.
+            </returns>
+        </member>
+        <member name="M:Ipfs.Varint.DecodeInt32(System.Byte[],System.Int32)">
+            <summary>
+              Convert the byte array to an <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="bytes">
+              A varint encoded byte array containing the variable integer.
+            </param>
+            <param name="offset">
+              Offset into <paramref name="bytes"/> to start reading from.
+            </param>
+            <returns>The integer value.</returns>
+        </member>
+        <member name="M:Ipfs.Varint.DecodeInt64(System.Byte[],System.Int32)">
+            <summary>
+              Convert the byte array to a <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="bytes">
+              A varint encoded byte array containing the variable integer.
+            </param>
+            <param name="offset">
+              Offset into <paramref name="bytes"/> to start reading from.
+            </param>
+            <returns>The integer value.</returns>
+        </member>
+        <member name="M:Ipfs.Varint.WriteVarint(System.IO.Stream,System.Int64)">
+            <summary>
+              Writes the variable integer encoding of the value to
+              a stream.
+            </summary>
+            <param name="stream">
+              The <see cref="T:System.IO.Stream"/> to write to.
+            </param>
+            <param name="value">
+              A non-negative value to write.
+            </param>
+            <exception cref="T:System.NotSupportedException">
+              When <paramref name="value"/> is negative.
+            </exception>
+        </member>
+        <member name="M:Ipfs.Varint.ReadVarint32(System.IO.Stream)">
+            <summary>
+              Reads a variable integer from the stream. 
+            </summary>
+            <param name="stream">
+              A varint encoded <see cref="T:System.IO.Stream"/>.
+            </param>
+            <exception cref="T:System.IO.InvalidDataException">
+              When the varint value is greater than <see cref="F:System.Int32.MaxValue"/>.
+            </exception>
+            <returns>The integer value.</returns>
+        </member>
+        <member name="M:Ipfs.Varint.ReadVarint64(System.IO.Stream)">
+            <summary>
+              Reads a variable integer from the stream. 
+            </summary>
+            <param name="stream">
+              A varint encoded <see cref="T:System.IO.Stream"/>.
+            </param>
+            <exception cref="T:System.IO.InvalidDataException">
+              When the varint value is greater than <see cref="F:System.Int64.MaxValue"/>.
+            </exception>
+            <returns>The integer value.</returns>
+        </member>
+    </members>
+</doc>

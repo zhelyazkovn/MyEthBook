@@ -10,11 +10,31 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>Avatar:</dt>
+        <dd>
+            <p></p>
+            <p>
+
+
+                @using (Html.BeginForm("Index", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true)
+
+                        <input type="file" value="avatar" name="avatar" />
+                        <input type="submit" value="Uload" />
+
+                    </div>
+                }
+
+            </p>
+        </dd>
         <dt>Current Address:</dt>
         <dd>
             @Model.Address
             @*@Model.Logins.Count [
-        @Html.ActionLink("Manage", "ManageLogins") ]*@
+                @Html.ActionLink("Manage", "ManageLogins") ]*@
         </dd>
         <dt>Password:</dt>
         <dd>

@@ -47,5 +47,15 @@ import account with the private key from myethwallet above
 network? how to connect to ropsten and my contract?
 get the contract address when deployed in ropsten
 
+TODO:
+add in the contract the following logic -
+mapping(address => bool) lockedUsers;
+mapping(address => uint) invitedUsersPerUser;
+function unlockUser(){lockedUsers[msg.sender] = true}
+function inviteFrient(){invitedUsersPerUser[msg.sender] += 1; if (invitedUsersPerUser[msg.sender] >= 3) {lockedUsers[msg.sender] = true}}
+add IPFS - tegisterred user can have avatar
+add send transactions to address from the list - optional!
+add unit tests - optional!
+
 
 

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Ipfs.Api;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -32,9 +33,9 @@ namespace MyEthBook.Client.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -64,7 +65,7 @@ namespace MyEthBook.Client.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
-            
+
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -72,7 +73,38 @@ namespace MyEthBook.Client.Controllers
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
-                Address =  GetAddress()
+                Address = GetAddress()
+            };
+            return View(model);
+        }
+
+        //
+        // POST: /Manage/Index
+        [HttpPost]
+        public async Task<ActionResult> Index(HttpPostedFileBase avatar)
+        {
+            if (avatar == null)
+            {
+                avatar = Request.Files["avatar"];
+            }
+
+            //if (avatar != null)
+            //{
+                avatar.InputStream.Read(new byte[avatar.ContentLength], 0, avatar.ContentLength);
+                var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");// ("http://ipv4.fiddler:5001");
+                var file = ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
+         //   }
+
+            var userId = User.Identity.GetUserId();
+
+            var model = new IndexViewModel
+            {
+                HasPassword = HasPassword(),
+                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
+                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
+                Logins = await UserManager.GetLoginsAsync(userId),
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                Address = GetAddress()
             };
             return View(model);
         }
@@ -342,7 +374,7 @@ namespace MyEthBook.Client.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -393,6 +425,6 @@ namespace MyEthBook.Client.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
