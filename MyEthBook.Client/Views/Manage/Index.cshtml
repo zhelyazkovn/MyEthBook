@@ -14,6 +14,10 @@
         <dd>
             <p></p>
             <p>
+                @if (!string.IsNullOrEmpty(Model.Avatar))
+                {
+                    <img src="@("https://ipfs.io/ipfs/" + Model.Avatar)" width="100" />
+                }
 
 
                 @using (Html.BeginForm("Index", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -27,6 +31,18 @@
 
                     </div>
                 }
+
+                @*@using (Html.BeginForm("Index", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true)
+
+                        <input type="file" value="avatar" name="avatar" />
+                        <input type="submit" value="Uload" />
+
+                    </div>
+                }*@
 
             </p>
         </dd>

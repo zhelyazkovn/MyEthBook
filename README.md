@@ -48,12 +48,25 @@ network? how to connect to ropsten and my contract?
 get the contract address when deployed in ropsten
 
 TODO:
+
+21 FEB 2018:
+
+1. Add avatar string field to customer in the db and migrate - ДОНЕ
+2. Allow customer to update his avatar (store in IPFS)
+3. Write logic in smart contract for ulocking user
+4. Allow user to edit/remove addresses
+5. Add new UI
+6. Optional - add unit tests
+7. Optional - add sending ethers 
+
+
+
 add in the contract the following logic -
-mapping(address => bool) lockedUsers;
-mapping(address => uint) invitedUsersPerUser;
-function unlockUser(){lockedUsers[msg.sender] = true}
-function inviteFrient(){invitedUsersPerUser[msg.sender] += 1; if (invitedUsersPerUser[msg.sender] >= 3) {lockedUsers[msg.sender] = true}}
-add IPFS - tegisterred user can have avatar
+mapping(address => bool) lockedUsers; DONE
+mapping(address => uint) invitedUsersPerUser; DONE
+function unlockUser(){lockedUsers[msg.sender] = true} DONE
+function inviteFrient(){invitedUsersPerUser[msg.sender] += 1; if (invitedUsersPerUser[msg.sender] >= 3) {lockedUsers[msg.sender] = true}}    DONE
+add IPFS - tegisterred user can have avatar DONE
 add send transactions to address from the list - optional!
 add unit tests - optional!
 

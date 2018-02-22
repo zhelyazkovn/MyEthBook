@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -16,6 +17,7 @@ namespace MyEthBook.Client.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private const string defaultAvatar = "QmaJeAV1f4XjhG7ZeLz6EGRuq4hSNHtrZ85CqnudxAu35g";
 
         public ManageController()
         {
@@ -65,6 +67,7 @@ namespace MyEthBook.Client.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var user = UserManager.FindById(userId);
 
             var model = new IndexViewModel
             {
@@ -73,7 +76,8 @@ namespace MyEthBook.Client.Controllers
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
-                Address = GetAddress()
+                Address = GetAddress(),
+                Avatar = string.IsNullOrEmpty(user.Avatar) ? defaultAvatar : user.Avatar
             };
             return View(model);
         }
@@ -91,11 +95,26 @@ namespace MyEthBook.Client.Controllers
             //if (avatar != null)
             //{
                 avatar.InputStream.Read(new byte[avatar.ContentLength], 0, avatar.ContentLength);
-                var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");// ("http://ipv4.fiddler:5001");
-                var file = ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
-         //   }
+               
+               // var file = await ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
+            var fileName = Path.GetFileName(avatar.FileName);
+            var path = Path.Combine(Server.MapPath("~/tmp/"), fileName);
+            avatar.SaveAs(path);
 
+            if (!string.IsNullOrEmpty(path))
+            {
+                var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");
+                var file = await ipfs.FileSystem.AddFileAsync(path);
+
+                var userTmp = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                userTmp.Avatar = file.Id.Hash.ToString();
+                await UserManager.UpdateAsync(userTmp);
+            }
+
+            // var file1 = await ipfs.FileSystem.AddFileAsync(avatar.FileName);
+            // }
             var userId = User.Identity.GetUserId();
+            var user = UserManager.FindById(userId);
 
             var model = new IndexViewModel
             {
@@ -104,7 +123,8 @@ namespace MyEthBook.Client.Controllers
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
-                Address = GetAddress()
+                Address = GetAddress(),
+                Avatar = string.IsNullOrEmpty(user.Avatar) ? defaultAvatar : user.Avatar
             };
             return View(model);
         }

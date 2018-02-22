@@ -28,7 +28,8 @@ namespace MyEthBook.Client.Controllers
         public async Task<ActionResult> Index()
         {
             ContractService contractService =  GetContactService();
-            string imageSrc = "QmdDF4RyGeSXSwoSNQXFqWZDgw2mTaDgWimJcRpAo3GWv5";
+            string imageSrc = "";
+            //string imageSrc = "QmdDF4RyGeSXSwoSNQXFqWZDgw2mTaDgWimJcRpAo3GWv5";
             //string avatar = "avatar55.jpg";
             //var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");
             //var file = await ipfs.FileSystem.ReadFileAsync("QmdDF4RyGeSXSwoSNQXFqWZDgw2mTaDgWimJcRpAo3GWv5");
@@ -59,16 +60,16 @@ namespace MyEthBook.Client.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(HttpPostedFileBase avatar)
         {
-            long myBookCount = -1;
-            if (avatar == null)
-            {
-                avatar = Request.Files["avatar"];
-            }
+            string myBookCount = "";
+            //if (avatar == null)
+            //{
+            //    avatar = Request.Files["avatar"];
+            //}
             
-            var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");
-            var file = await ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
+            //var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");
+            //var file = await ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
 
-            var userId = User.Identity.GetUserId();
+            //var userId = User.Identity.GetUserId();
 
             return View(myBookCount);
         }
