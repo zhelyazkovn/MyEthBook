@@ -83,8 +83,11 @@ namespace MyEthBook.Client.Controllers
                     if (!string.IsNullOrEmpty(model.MmAddress))
                     {
                         var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                        user.Address = model.MmAddress;
-                        await UserManager.UpdateAsync(user);
+                        if (user != null)
+                        {
+                            user.Address = model.MmAddress;
+                            await UserManager.UpdateAsync(user);
+                        }
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:

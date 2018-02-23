@@ -51,12 +51,12 @@ TODO:
 
 21 FEB 2018:
 
-1. Add avatar string field to customer in the db and migrate - ДОНЕ
-2. Allow customer to update his avatar (store in IPFS)
-3. Write logic in smart contract for ulocking user
+1. Add avatar string field to customer in the db and migrate - DONE
+2. Allow customer to update his avatar (store in IPFS) - DONE
+3. Write logic in smart contract for ulocking user  - DONE
 4. Allow user to edit/remove addresses
 5. Add new UI
-6. Optional - add unit tests
+6. Add unit tests
 7. Optional - add sending ethers 
 
 
@@ -71,4 +71,4 @@ add send transactions to address from the list - optional!
 add unit tests - optional!
 
 
-
+//run unit tests with truffle - 1.start testrpc in cmd, 2. on separate cmd navigate to test folder and run truffle test
