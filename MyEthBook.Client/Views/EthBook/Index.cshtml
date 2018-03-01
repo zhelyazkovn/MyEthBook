@@ -3,22 +3,41 @@
     ViewBag.Title = "Index";
 }
 
-<h2>My EthBook</h2>
-<h3>@Model</h3>
+<div class="page p4" id="p1">
+    <li class="icon fa fa-heart">
+        <span class="title">My EthBook</span>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="font-size:20px !important;text-align:left;">
+                    <table>
+                        @foreach (var ca in Model.ContactAddresses)
+                        {
+                        <tr>
+                            <td>@ca.Name</td>
+                            <td>@ca.Address</td>
+                        </tr>
+                            @*@(ca.Name + "-" + ca.Address)
+                            <br />*@
+                        }
+                    </table>
+                </div>
+                <div class="col-md-6" style="font-size:20px !important;background-color:white;">
+                    <p>
+                        <input type="hidden" id="mmaddress" name="mmaddress" />
+                        name:  <input type="text" name="name" id="name" />
+                        adddress: <input type="text" name="address" id="address" />
+                        <input type="submit" id="add-addr" />
+                        <a id="result-check" target="_blank"></a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </li>
+
+</div>
 
 
-@foreach (var ca in Model.ContactAddresses)
-{
-    <p>@ca.Name -  @ca.Address</p>
-}
-
-    <p>
-        <input type="hidden" id="mmaddress" name="mmaddress" />
-        name:  <input type="text" name="name" id="name" />
-        adddress: <input type="text" name="address" id="address" />
-        <input type="submit" id="add-addr" />
-
-    </p>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -43,7 +62,7 @@
                 console.log(name + " " + address);
 
                 let contract = web3.eth.contract(documentRegistryContractABI).at(documentRegistryContractAddress);
-                contract.addContact(name,addr, function (err, result, r1, r2, r3) {
+                contract.addContact(name, address, function (err, result, r1, r2, r3) {
                     if (err) {
                         console.log("ERROR");
                     }
@@ -53,6 +72,11 @@
                     console.log(r2);
                     console.log(r3);
                     console.log("ADDED");
+                    if (result) {
+                        $('#result-check').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
+                        $('#result-check').text('Check Transaction');
+                        $('#result-check').css('color', 'white');
+                    }
                 });
             })
 

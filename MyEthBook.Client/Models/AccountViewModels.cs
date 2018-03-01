@@ -82,6 +82,11 @@ namespace MyEthBook.Client.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "MetaMask Address")]
+        public string MmAddress { get; set; }
     }
 
     public class ResetPasswordViewModel

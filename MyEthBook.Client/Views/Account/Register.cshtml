@@ -3,39 +3,86 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="page p4" id="p1">
+    <li class="icon fa fa-envelope">
+        <span class="title">Register</span>
+        <div class="container">
+            <div class="row">
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                <div class="col-md-6" style="font-size:20px !important;">
+
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "contact", @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="mmaddress" name="mmaddress" />
+                        <p>Please make sure you have MetaMask installed and account imported.</p>
+                        <hr />
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <div class="col-md-12">
+                            <fieldset>
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset>
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset>
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset id="p4">
+                                <button type="submit" value="Register" id="form-submit" class="btn">Register</button>
+                            </fieldset>
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-6" style="font-size:20px !important;background-color:white;">
+                    <div class="right-info">
+                        <p>
+                            <img src="~/img/metamask.png" style="width:73px;" />
+
+                        </p>
+                        <hr style="border-top: 1px solid #5c6ea3;" />
+                        <p>
+                            <br />
+                            <br />
+                            <a href="https://metamask.io/">Go To MetaMask Website</a>
+                            <br />
+                            <br />
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+    </li>
+
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (typeof web3 == 'undefined') {
+                alert("Please Install MetaMask if you want to use the DApp.");
+            }
+            console.log(web3.eth.accounts[0]);
+            $("#mmaddress").val(web3.eth.accounts[0]);
+        });
+    </script>
 }
