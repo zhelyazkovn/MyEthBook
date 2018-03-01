@@ -260,18 +260,52 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fontAwesome.css" />
+    <Content Include="Content\tooplate-style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\about-bg.png" />
+    <Content Include="img\close.png" />
+    <Content Include="img\contact-bg.png" />
+    <Content Include="img\gallery-bg.png" />
+    <Content Include="img\home-bg.png" />
+    <Content Include="img\item-01.jpg" />
+    <Content Include="img\item-02.jpg" />
+    <Content Include="img\item-03.jpg" />
+    <Content Include="img\item-04.jpg" />
+    <Content Include="img\item-05.jpg" />
+    <Content Include="img\item-06.jpg" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\metamask.png" />
+    <Content Include="img\next.png" />
+    <Content Include="img\prev.png" />
+    <Content Include="img\right-about-image.png" />
+    <Content Include="img\thumb-01.jpg" />
+    <Content Include="img\thumb-02.jpg" />
+    <Content Include="img\thumb-03.jpg" />
+    <Content Include="img\thumb-04.jpg" />
+    <Content Include="img\thumb-05.jpg" />
+    <Content Include="img\thumb-06.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="README.md" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -285,6 +319,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sha256.min.js" />
+    <Content Include="Scripts\vendor\bootstrap.js" />
+    <Content Include="Scripts\vendor\bootstrap.min.js" />
+    <Content Include="Scripts\vendor\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="Scripts\vendor\npm.js" />
+    <Content Include="tmp\avatar1.jpg" />
+    <Content Include="tmp\defaultAvatar.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

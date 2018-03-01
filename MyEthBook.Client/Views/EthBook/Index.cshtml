@@ -16,28 +16,23 @@
                             <td>@ca.Name</td>
                             <td>@ca.Address</td>
                         </tr>
-                            @*@(ca.Name + "-" + ca.Address)
-                            <br />*@
                         }
                     </table>
                 </div>
                 <div class="col-md-6" style="font-size:20px !important;background-color:white;">
-                    <p>
+                    <p style="margin: 20px 0% 20px 0%;">
                         <input type="hidden" id="mmaddress" name="mmaddress" />
-                        name:  <input type="text" name="name" id="name" />
-                        adddress: <input type="text" name="address" id="address" />
+                        <input type="text" name="name" id="name" placeholder="name" />
+                        <input type="text" name="address" id="address" placeholder="address" />
                         <input type="submit" id="add-addr" />
+                        <br />
                         <a id="result-check" target="_blank"></a>
                     </p>
                 </div>
-
             </div>
         </div>
     </li>
-
 </div>
-
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -55,31 +50,35 @@
             console.log(addr);
 
             $("#add-addr").on("click", function () {
-                const documentRegistryContractAddress = '0xdd6e8a55ef29b4a4dd9a0cf3259afbd0ef4c5755';
-                const documentRegistryContractABI = [{ "constant": true, "inputs": [], "name": "getTotalCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getMyBookCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "addr", "type": "address" }], "name": "getContact", "outputs": [{ "name": "", "type": "bytes32" }, { "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }, { "name": "", "type": "uint256" }], "name": "_ethBook", "outputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "addContact", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }, { "name": "amount", "type": "uint256" }], "name": "payPraize", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }];
-                let name = $("#name").val();
-                let address = $("#address").val();
-                console.log(name + " " + address);
 
-                let contract = web3.eth.contract(documentRegistryContractABI).at(documentRegistryContractAddress);
-                contract.addContact(name, address, function (err, result, r1, r2, r3) {
-                    if (err) {
-                        console.log("ERROR");
-                    }
-                    console.log(err);
-                    console.log(result);
-                    console.log(r1);
-                    console.log(r2);
-                    console.log(r3);
-                    console.log("ADDED");
-                    if (result) {
-                        $('#result-check').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
-                        $('#result-check').text('Check Transaction');
-                        $('#result-check').css('color', 'white');
-                    }
-                });
+                if (!$("#name").val() || !$("#address").val()){
+                    alert('Please check your inputs.');
+                }
+                else {
+                    const documentRegistryContractAddress = '0xdd6e8a55ef29b4a4dd9a0cf3259afbd0ef4c5755';
+                    const documentRegistryContractABI = [{ "constant": true, "inputs": [], "name": "getTotalCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getMyBookCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "addr", "type": "address" }], "name": "getContact", "outputs": [{ "name": "", "type": "bytes32" }, { "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }, { "name": "", "type": "uint256" }], "name": "_ethBook", "outputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "addContact", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }, { "name": "amount", "type": "uint256" }], "name": "payPraize", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }];
+                    let name = $("#name").val();
+                    let address = $("#address").val();
+                    console.log(name + " " + address);
+
+                    let contract = web3.eth.contract(documentRegistryContractABI).at(documentRegistryContractAddress);
+                    contract.addContact(name, address, function (err, result, r1, r2, r3) {
+                        if (err) {
+                            console.log("ERROR");
+                        }
+                        console.log(err);
+                        console.log(result);
+                        console.log(r1);
+                        console.log(r2);
+                        console.log(r3);
+                        console.log("ADDED");
+                        if (result) {
+                            $('#result-check').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
+                            $('#result-check').text('Check Transaction');
+                        }
+                    });
+                }
             })
-
         });
     </script>
 }

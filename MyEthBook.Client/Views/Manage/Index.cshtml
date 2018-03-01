@@ -3,129 +3,79 @@
     ViewBag.Title = "Manage";
 }
 
-<h2>@ViewBag.Title.</h2>
-
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div>
-    <h4>Change your account settings</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>Avatar:</dt>
-        <dd>
-            <p></p>
-            <p>
-                @if (!string.IsNullOrEmpty(Model.Avatar))
-                {
-                    <img src="@("https://ipfs.io/ipfs/" + Model.Avatar)" width="100" />
-                }
 
 
-                @using (Html.BeginForm("Index", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <div class="form-horizontal">
-                        <hr />
-                        @Html.ValidationSummary(true)
+@*<p class="text-success"></p>*@
 
-                        <input type="file" value="avatar" name="avatar" />
-                        <input type="submit" value="Uload" />
+<div class="page p4" id="p1">
+    <li class="icon fa fa-user">
+        <span class="title">My Account</span>
+        <div class="container" style="font-size:15px;">
+            <div class="row">
+                <p>Change your account settings</p>
+                <hr />
+                @ViewBag.StatusMessage
 
-                    </div>
-                }
+                <div class="col-md-6" style="font-size:20px !important;text-align:left;">
+                    <dl class="dl-horizontal">
+                        <dt>Avatar:<br />Stored in the InterPlanetary File Syste</dt>
+                        <dd>
+                            @using (Html.BeginForm("Index", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="form-horizontal">
+                                    @Html.ValidationSummary(true)
 
-                @*@using (Html.BeginForm("Index", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <div class="form-horizontal">
-                        <hr />
-                        @Html.ValidationSummary(true)
 
-                        <input type="file" value="avatar" name="avatar" />
-                        <input type="submit" value="Uload" />
+                                    <label for="file-upload" class="custom-file-upload">
 
-                    </div>
-                }*@
+                                        @if (!string.IsNullOrEmpty(Model.Avatar))
+                                        {
+                                            <img src="@("https://ipfs.io/ipfs/" + Model.Avatar)" width="100" />
+                                        }
+                                        <span class="browse">Browse</span>
+                                    </label>
+                                    <input id="file-upload" type="file" value="avatar" name="avatar" />
 
-            </p>
-        </dd>
-        <dt>Current Address:</dt>
-        <dd>
-            @Model.Address
-            @*@Model.Logins.Count [
-                @Html.ActionLink("Manage", "ManageLogins") ]*@
-        </dd>
-        <dt>Password:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Change your password", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("Create", "SetPassword")
-            }
-            ]
-        </dd>
-        <dt>External Logins:</dt>
-        <dd>
-            Scedulled at Version 2
-            @*@Model.Logins.Count [
-                @Html.ActionLink("Manage", "ManageLogins") ]*@
-        </dd>
-        @*
-            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+                                    @*<input type="file" value="avatar" name="avatar" class="" />*@
 
-             See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-
-             Uncomment the following block after you have set up two-factor authentication
-        *@
-        @*
-            <dt>Phone Number:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None")
-                @if (Model.PhoneNumber != null)
-                {
-                    <br />
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
-                    }
-                }
-                else
-                {
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-                }
-            </dd>
-        *@
-        <dt>2FA:</dt>
-        <dd>
-            <p>
-                Scedulled at Version 2
-                @*There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                    for details on setting up this ASP.NET application to support two-factor authentication.*@
-            </p>
-            @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-link" />
-                        </text>
-                    }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-link" />
-                        </text>
-                    }
-                }*@
-        </dd>
-    </dl>
+                                    <div class="col-md-12">
+                                        <fieldset id="p4">
+                                            <button type="submit" value="Upload" id="form-submit" class="btn"><i class="fa fa-cloud-upload"></i> Upload</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            }
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6" style="font-size:20px !important;">
+                    <dl class="dl-horizontal">
+                        <dt>Current Address:</dt>
+                        <dd>
+                            @Model.Address
+                        </dd>
+                        <dt>Password:</dt>
+                        <dd>
+                            [
+                            @if (Model.HasPassword)
+                            {
+                                @Html.ActionLink("Change your password", "ChangePassword")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Create", "SetPassword")
+                            }
+                            ]
+                        </dd>
+                        <dt>2FA:</dt>
+                        <dd>
+                            Scedulled at Version 2
+                            @*There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                                for details on setting up this ASP.NET application to support two-factor authentication.*@
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </li>
 </div>
