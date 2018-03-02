@@ -21,7 +21,23 @@
 3.15 Store images on IPFS - optional
 
 
+-------- Deployment and presentation workflow --------
+1. Write, compile and test solidity code in remix ide
+2. Go MEW in Ropsten mode -> Contracts -> Deploy Contract
+3. Get the needed data from remix (Compile -> Details)
+4. Sing and deploy the contract using prepared ropsten address with some test eth in there 
+5. Get the contract address and keep it in the web app (both web3js and nethereum)
+6. Get the ABI from the remix and add it to the web app (both web3js and nethereum)
+-----------------
+
 --------PLEASE IGNORRE!! OLD RANDOM NOTES------------
+23 feb FLOW:
+1. user register and we assign MM address to his account + avatar + refLink
+
+
+---
+
+
 
 nethereum for reading data - just reading because singning server side is not safe.
 web3js for writing data using metamask (most secure)

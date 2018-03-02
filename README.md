@@ -55,9 +55,9 @@ TODO:
 2. Allow customer to update his avatar (store in IPFS) - DONE
 3. Write logic in smart contract for ulocking user  - DONE
 4. Allow user to edit/remove addresses
-5. Add new UI
-6. Add unit tests
-7. Optional - add sending ethers 
+5. Add new UI	 - DONE
+6. Add unit tests - DONE
+7. Optional - add sending ethers Cancelled
 
 
 
@@ -72,3 +72,8 @@ add unit tests - optional!
 
 
 //run unit tests with truffle - 1.start testrpc in cmd, 2. on separate cmd navigate to test folder and run truffle test
+
+
+Wallet in ropsten to test with
+pk 155844ce5940bbf06a467c62f9388fea81617c13573f7f7b005bcec4588b65b4
+address 0xA6902B86b8Ca52963fFb79Fe8685897c98597963

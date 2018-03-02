@@ -2,7 +2,7 @@ pragma solidity ^0.4.14;
 
 import "./strings.sol";
 
-contract MyEthBook{
+contract MyEthBook3{
     using strings for *;
     
     struct contactAddress{
@@ -13,9 +13,10 @@ contract MyEthBook{
     uint public _unlockPrice;
     uint public _minRefCount;
     
-    mapping (address => contactAddress[]) public  _ethBook;
+    mapping (address => contactAddress[]) private  _ethBook;
     mapping(address => bool) private unlockedUsers;
     mapping(address => uint) private invitedUsersCountPerUser;
+    mapping(address => uint) private invitedAndAcceptedUsersCountPerUser;
     
     mapping(address => bytes32) private usersReferalLinks;
     mapping(address => string) private invitedUsersEmailsPerUser;
@@ -25,7 +26,7 @@ contract MyEthBook{
         require(msg.sender == _owner);
         _;
     }
-    function MyEthBook() public{
+    function MyEthBook3() public{
         _owner = msg.sender;
         _unlockPrice = 0.005 ether;
         _minRefCount = 2;
@@ -51,6 +52,8 @@ contract MyEthBook{
         invitedUsersEmailsPerUser[msg.sender] = invitedUsersEmailsPerUser[msg.sender].toSlice()
             .concat((email.toSlice().concat(",".toSlice())).toSlice());
         
+        invitedUsersCountPerUser[msg.sender] +=1;
+        
         return invitedUsersEmailsPerUser[msg.sender];
     }
     
@@ -60,9 +63,9 @@ contract MyEthBook{
         invitedAndAcceptedUsersEmailsPerUser[refOwner] = invitedAndAcceptedUsersEmailsPerUser[refOwner].toSlice()
             .concat((",".toSlice().concat(email.toSlice())).toSlice());
             
-        invitedUsersCountPerUser[refOwner] += 1;
+        invitedAndAcceptedUsersCountPerUser[refOwner] += 1;
         
-        if( invitedUsersCountPerUser[refOwner] >= _minRefCount){
+        if( invitedAndAcceptedUsersCountPerUser[refOwner] >= _minRefCount){
             unlockedUsers[refOwner] = true;
         }
         
@@ -81,18 +84,18 @@ contract MyEthBook{
         return false;
     }
     
-    function deleteContact(address bookOwner, uint index) public returns(bool){
-        if(_ethBook[bookOwner].length > index){
-            delete _ethBook[bookOwner][index];
+    function deleteContact(uint index) public returns(bool){ 
+        if(_ethBook[msg.sender].length > index){
+            delete _ethBook[msg.sender][index];
             return true;
         }
         return false;
     }
     
-    function editContact(address bookOwner, uint index, bytes32 name, address addr) public returns(bool){
-        if(_ethBook[bookOwner].length > index){
-            _ethBook[bookOwner][index].name = name;
-            _ethBook[bookOwner][index].addr = addr;
+    function editContact(uint index, bytes32 name, address addr) public returns(bool){ 
+        if(_ethBook[msg.sender].length > index){
+            _ethBook[msg.sender][index].name = name;
+            _ethBook[msg.sender][index].addr = addr;
             return true;
         }
          return false;
@@ -104,6 +107,14 @@ contract MyEthBook{
     
     function getTotalCount() public view returns(uint count){
          count = _ethBook[msg.sender].length;
+    }
+    
+    function getTotalInvitedCount() public view returns(uint){ 
+         return invitedUsersCountPerUser[msg.sender];
+    }
+    
+    function getTotalInvitedAndAcceptedCount(address refOwner) public view returns(uint){
+         return invitedAndAcceptedUsersCountPerUser[refOwner];
     }
     
     function getMyBookCount(address addr) public view returns(uint count){
@@ -124,5 +135,5 @@ contract MyEthBook{
     
     function changeMinRefCount(uint newMinRefCount) public isOwner returns (uint){
         return _minRefCount = newMinRefCount;
-	}
+    }
 }
