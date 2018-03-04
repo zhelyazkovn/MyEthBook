@@ -1,4 +1,5 @@
-﻿@model MyEthBook.Client.Models.IndexViewModel
+﻿@using Microsoft.AspNet.Identity
+@model MyEthBook.Client.Models.IndexViewModel
 @{
     ViewBag.Title = "Manage";
 }
@@ -6,6 +7,10 @@
 
 
 @*<p class="text-success"></p>*@
+
+
+@*//TODO: add ref linki - sha126 on email*@
+@*//TODO: add invited count, invited and accepted count etc*@
 
 <div class="page p4" id="p1">
     <li class="icon fa fa-user">
@@ -50,6 +55,8 @@
                 </div>
                 <div class="col-md-6" style="font-size:20px !important;">
                     <dl class="dl-horizontal">
+                        <dt>Email:</dt>
+                        <dd>@User.Identity.GetUserName()</dd>
                         <dt>Current Address:</dt>
                         <dd>
                             @Model.Address

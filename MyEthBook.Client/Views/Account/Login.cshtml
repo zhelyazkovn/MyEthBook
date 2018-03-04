@@ -86,6 +86,9 @@
             }
             console.log(web3.eth.accounts[0]);
             $("#mmaddress").val(web3.eth.accounts[0]);
+            //if (!web3.eth.accounts[0]) {
+            //    $("#mmaddress").val("0xdd870fa1b7c4700f2bd7f44238821c26f7392148");
+            //}
             console.log(typeof web3);
         });
     </script>

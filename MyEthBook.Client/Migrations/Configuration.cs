@@ -10,6 +10,7 @@ namespace MyEthBook.Client.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "MyEthBook.Client.Models.ApplicationDbContext";
         }
 

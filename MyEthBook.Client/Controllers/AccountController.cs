@@ -82,7 +82,7 @@ namespace MyEthBook.Client.Controllers
                 case SignInStatus.Success:
                     if (!string.IsNullOrEmpty(model.MmAddress))
                     {
-                        var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                        var user = UserManager.FindById(User.Identity.GetUserId());
                         if (user != null)
                         {
                             user.Address = model.MmAddress;
@@ -161,6 +161,9 @@ namespace MyEthBook.Client.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
+                //TODO: !!!  INIT USER in contract !!!
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

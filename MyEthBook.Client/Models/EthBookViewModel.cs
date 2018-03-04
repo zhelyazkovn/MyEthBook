@@ -10,5 +10,6 @@ namespace MyEthBook.Client.Models
     {
         public List<ContactAddress> ContactAddresses;
         public int Length;
+        public bool UserUnlocked;
     }
 }

@@ -34,6 +34,14 @@
 23 feb FLOW:
 1. user register and we assign MM address to his account + avatar + refLink
 
+TODO TO IMPROVE MARCH 2018 !!!!!!
+add function transfer owner -done
+add function is user unlocked -done
+add event
+add inheritance
+add underscore in private variables -done
+add default avatar to address list
+
 
 ---
 

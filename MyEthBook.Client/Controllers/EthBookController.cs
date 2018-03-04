@@ -23,22 +23,34 @@ namespace MyEthBook.Client.Controllers
             {
                 var user = UserManager.FindById(User.Identity.GetUserId());
 
-                //myBookCount = Sync(contractService.GetMyBookCount("0xf17f52151ebef6c7334fad080c5704d77216b732"));
                 myBookCount = Sync(contractService.GetMyBookCount(user.Address));
 
                 vm.ContactAddresses = new List<ContactAddress>();
                 for (int i = 0; i < myBookCount; i++)
                 {
-                    //ContactAddress ca = await contractService.GetContact(i, "0xf17f52151ebef6c7334fad080c5704d77216b732");
                     ContactAddress ca = await contractService.GetContact(i, user.Address);
                     vm.ContactAddresses.Add(ca);
                 }
 
-                //myBookCount = Sync(contractService.GetMyBookCount(user.Address));
+                vm.UserUnlocked = user.Unlocked.HasValue ? user.Unlocked.Value : false;
+                if (!user.Unlocked.HasValue || (user.Unlocked.HasValue && !user.Unlocked.Value))
+                {
+                    if (contractService != null)
+                    {
+
+                        //TODO: to do new contract returning null is not possible !!!
+                        Task<bool> task = contractService.IsUnlocked(user.Address);
+                        bool unlocked = Sync(task);
+                        if (unlocked)
+                        {
+                            user.Unlocked = true;
+                            vm.UserUnlocked = true;
+                            await UserManager.UpdateAsync(user);
+                        }
+                    }
+                }
             }
 
-
-            //Sync(contractService.AddContact("pena", "0x440a3ced76081189d4faf7342a940a305a61d9e2"));
             return  View(vm);
         }
     }

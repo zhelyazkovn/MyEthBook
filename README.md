@@ -77,3 +77,7 @@ add unit tests - optional!
 Wallet in ropsten to test with
 pk 155844ce5940bbf06a467c62f9388fea81617c13573f7f7b005bcec4588b65b4
 address 0xA6902B86b8Ca52963fFb79Fe8685897c98597963
+
+address2:
+pk bbdb57f6b87873e493c59a409e55c7a6b02ecb9800259870d7a9fcc50bec84f5
+address:0xA88E396c3301CAc245C496192860a9EeB7405538

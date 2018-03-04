@@ -99,7 +99,7 @@ namespace MyEthBook.Client.Controllers
              *   get the abi form the details button in Compile section in remix and assign to the ContactService
              */
             var web3 = new Web3("http://localhost:8545");
-            var service = new ContractService(web3, "0x7e383a3a1759c2f150f0fab93b94fd3cc2472486"); //contract address
+            var service = new ContractService(web3, "0x9c3431612364Eb8f6Fe7AD91D205F014BF0349aA"); //contract address //0x7e383a3a1759c2f150f0fab93b94fd3cc2472486
 
             return service;
         }
