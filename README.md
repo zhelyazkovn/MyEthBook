@@ -1,83 +1,59 @@
-// -------------------   MyEthBook  --------------------- //
-// ---- Store your address book on the blockchain!  ---- //
+ <h1>MyEthBook</h1>
+ 
+<p>Store your address book on the blockchain!</p>
 
-1. Problem - keeps important and frequently used addresses in secure manner, in blockchain, that could be easilly accessed from the DApp. Example: two and more friends participate in ICO with common budget and the one that succeeds transfer the coins to the others. Use myethbook for frequently used addresses - you don't remember the phone numbers of all your friends, do you? The final goal will be ethereum book that acts as wallet, book, and portfolio - must be combination between blockfolio + my ether wallet + address book = MyEthManager
+<p>It keeps important and frequently used addresses in secure manner, on blockchain, that could be easilly accessed from the DApp. Example: two and more friends participate in ICO with common budget and the one that succeeds has to transfer the coins to the others. Use MyEthBook for frequently used addresses - you don't remember the phone numbers of all your friends, do you? The final goal will be Ethereum book that acts as wallet, book, and portfolio -> will be combination between Blockfolio + My Ether Wallet + Address Book = MyEthManager (online banking for Ethereum tokens)</p>
 
+<h2>How It Works?</h2>
+<p>
+<ol>
+<li>Register and unlock your EthBook</li>
+<li>Use it for free - Init your user to obtain referral link and invite at least 2 friends to register in MyEthBook</li>
+<li>Or pay 0.005eth once for lifetime usage</li>
+<li>Use MetaMask on your browser with account with minimal amount of eth for the transactions gas price. Pay minimal gas only on adding new contact - miners fee.</li>
+<li>Add, Edit and Remove name-address pairs to your EthBook</li>
+<li>Upload avatar - image stored in IPFS</li>
+</ol>
+</p>
 
-2. Register and unlock your ethbook
-
-2.1. Use it for free - invite 3 friends to use myethbook
-
-2.2. Or Pay 5$ in ethereum lifetime
-
-2.3. Use MetaMask on your browser with account with minimal amount of eth for the transactions gas price. Pay minimal gas only on adding new contact - miners fee.
-
-2.4. Version 1: Add/Edit/Remove addresses, assing images to a contact (optional).
-
-2.5. Version 2: Generate wallet, send and receive tokens, list tokens.
-
-2.6. Version 3: List
-
-
-3. Technical Details
-
-3.1. ASP.NET MVC
-
-3.2. Nethereum - web3 for .net // src: https://github.com/Nethereum/Nethereum/blob/master/src/Nethereum.Web.Sample/Controllers/HomeController.cs
-
-3.3. Remix IDE for smart contract creation
-
-3.4. TestRPC locall node
-
-3.5. MetaMask
-
-3.6. User sign in - store referal link, list of contacts (optional), bookEnabled = true/false (payed or invited friends);
-
-3.15 Store images on IPFS - optional
-
-4. Additional Random Notes
-while developing use remix and deploy contracts there + ganache = work locally because it is faster
-when doing demo user ropsten+infura
-write the cotract in remix
-open myethwallet in rposten network
-create wallet and use faucet to send some ethers
-deploy the cotract, use the byte code from remix
-open MM and join ropsten
-import account with the private key from myethwallet above
-network? how to connect to ropsten and my contract?
-get the contract address when deployed in ropsten
-
-TODO:
-
-21 FEB 2018:
-
-1. Add avatar string field to customer in the db and migrate - DONE
-2. Allow customer to update his avatar (store in IPFS) - DONE
-3. Write logic in smart contract for ulocking user  - DONE
-4. Allow user to edit/remove addresses
-5. Add new UI	 - DONE
-6. Add unit tests - DONE
-7. Optional - add sending ethers Cancelled
+<h3>Prerequisites</h2>
+<p>
+You have Internet connection and MetaMask installed.
+</p>
 
 
+<h2>Technical Details</h2>
+<p>
+<ol>
+<li>ASP.NET MVC 5.2.3; .NET Framework 4.7.1</li>
+<li>Nethereum - Web3 for .NET</li>
+<li>Remix IDE for smart contract developing; Visual Studio 2017 for Client developing</li>
+<li>MetaMask</li>
+<li>IPFS</li>
+<li>Unit testing with Truffle</li>
+</ol>
+</p>
 
-add in the contract the following logic -
-mapping(address => bool) lockedUsers; DONE
-mapping(address => uint) invitedUsersPerUser; DONE
-function unlockUser(){lockedUsers[msg.sender] = true} DONE
-function inviteFrient(){invitedUsersPerUser[msg.sender] += 1; if (invitedUsersPerUser[msg.sender] >= 3) {lockedUsers[msg.sender] = true}}    DONE
-add IPFS - tegisterred user can have avatar DONE
-add send transactions to address from the list - optional!
-add unit tests - optional!
+<h2>Running the tests</h2>
+<p>
+<ol>
+<li>On separate window start testrpc</li>
+<li>Open new command window and navigate to /MyEthBook.Truffle/test/</li>
+<li>Type truffle test and hit ENTER</li>
+</ol>
+</p>
+
+<h2>Authors</h2>
+<p>
+<ol>
+<li>Nikolay Zhelyazkov</li>
+</ol>
+</p>
 
 
-//run unit tests with truffle - 1.start testrpc in cmd, 2. on separate cmd navigate to test folder and run truffle test
-
-
-Wallet in ropsten to test with
-pk 155844ce5940bbf06a467c62f9388fea81617c13573f7f7b005bcec4588b65b4
-address 0xA6902B86b8Ca52963fFb79Fe8685897c98597963
-
-address2:
-pk bbdb57f6b87873e493c59a409e55c7a6b02ecb9800259870d7a9fcc50bec84f5
-address:0xA88E396c3301CAc245C496192860a9EeB7405538
+<h2>Acknowledgments</h2>
+<p>
+<ol>
+<li>Special thanks to SofUni team!</li>
+</ol>
+</p>
