@@ -809,3 +809,19 @@ input[type="file"] {
     color: #63adcc;
     text-transform:none !important;
 }
+
+.href-white {
+    color: white;
+}
+
+
+.validation-summary ul {
+    width: 100% !important;
+    position: relative !important;
+    padding-top: 0px !important;
+}
+
+    .validation-summary ul li {
+        margin: 5px 0;
+        color: #ffadad;
+    }

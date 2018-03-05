@@ -4,8 +4,6 @@
     ViewBag.Title = "Manage";
 }
 
-
-
 @*<p class="text-success"></p>*@
 
 
@@ -41,8 +39,6 @@
                                     </label>
                                     <input id="file-upload" type="file" value="avatar" name="avatar" />
 
-                                    @*<input type="file" value="avatar" name="avatar" class="" />*@
-
                                     <div class="col-md-12">
                                         <fieldset id="p4">
                                             <button type="submit" value="Upload" id="form-submit" class="btn"><i class="fa fa-cloud-upload"></i> Upload</button>
@@ -53,14 +49,10 @@
                         </dd>
                     </dl>
                 </div>
-                <div class="col-md-6" style="font-size:20px !important;">
+                <div class="col-md-6" style="font-size:17px !important;">
                     <dl class="dl-horizontal">
                         <dt>Email:</dt>
                         <dd>@User.Identity.GetUserName()</dd>
-                        <dt>Current Address:</dt>
-                        <dd>
-                            @Model.Address
-                        </dd>
                         <dt>Password:</dt>
                         <dd>
                             [
@@ -74,11 +66,32 @@
                             }
                             ]
                         </dd>
-                        <dt>2FA:</dt>
+                        <dt>Current Address:</dt>
                         <dd>
-                            Scedulled at Version 2
-                            @*There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                                for details on setting up this ASP.NET application to support two-factor authentication.*@
+                            @Model.Address
+                        </dd>
+                        <dt>Init:</dt>
+                        <dd>
+                            @Model.Init
+                        </dd>
+                        <dt>Ref Link:</dt>
+                        <dd>
+                            @if (Model.Init)
+                            {
+                                <a class="href-white" href="@("/Account/Register?reflink=" + Model.RefLink)">@Model.RefLink</a>
+                            }
+                            else
+                            {
+                                @("Must init first")
+                            }
+                        </dd>
+                        <dt>Ref Count:</dt>
+                        <dd>
+                            @Model.RefCount
+                        </dd>
+                        <dt>Unlocked:</dt>
+                        <dd>
+                            @Model.Unlocked
                         </dd>
                     </dl>
                 </div>

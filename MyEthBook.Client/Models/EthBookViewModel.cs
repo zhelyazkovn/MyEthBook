@@ -11,5 +11,7 @@ namespace MyEthBook.Client.Models
         public List<ContactAddress> ContactAddresses;
         public int Length;
         public bool UserUnlocked;
+        public bool Init;
+        public string RefLink;
     }
 }

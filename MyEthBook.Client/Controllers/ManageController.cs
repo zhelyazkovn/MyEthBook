@@ -9,11 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyEthBook.Client.Models;
+using MyEthBook.Services;
 
 namespace MyEthBook.Client.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -69,6 +70,10 @@ namespace MyEthBook.Client.Controllers
             var userId = User.Identity.GetUserId();
             var user = UserManager.FindById(userId);
 
+            ContractService contractService = GetContactService();
+
+            int refCount = Sync(contractService.GetTotalInvitedAndAcceptedCount(user.Address));
+
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -77,7 +82,11 @@ namespace MyEthBook.Client.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
                 Address = GetAddress(),
-                Avatar = string.IsNullOrEmpty(user.Avatar) ? defaultAvatar : user.Avatar
+                Avatar = string.IsNullOrEmpty(user.Avatar) ? defaultAvatar : user.Avatar,
+                RefLink = user.RefLink,
+                Init = user.Init.HasValue ? user.Init.Value : false,
+                Unlocked = user.Unlocked.HasValue ? user.Unlocked.Value : false,
+                RefCount = refCount
             };
             return View(model);
         }
@@ -94,11 +103,11 @@ namespace MyEthBook.Client.Controllers
 
             //if (avatar != null)
             //{
-                avatar.InputStream.Read(new byte[avatar.ContentLength], 0, avatar.ContentLength);
-               
-               // var file = await ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
+            avatar.InputStream.Read(new byte[avatar.ContentLength], 0, avatar.ContentLength);
+
+            // var file = await ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
             var fileName = Path.GetFileName(avatar.FileName);
-            var path = Path.Combine(Server.MapPath("~/tmp/"), fileName);
+            var path = Path.Combine(Server.MapPath("~/tmp"), fileName);
             avatar.SaveAs(path);
 
             if (!string.IsNullOrEmpty(path))
@@ -124,7 +133,9 @@ namespace MyEthBook.Client.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
                 Address = GetAddress(),
-                Avatar = string.IsNullOrEmpty(user.Avatar) ? defaultAvatar : user.Avatar
+                Avatar = string.IsNullOrEmpty(user.Avatar) ? defaultAvatar : user.Avatar,
+                RefLink = user.RefLink,
+                Init = user.Init.HasValue ? user.Init.Value : false
             };
             return View(model);
         }
@@ -135,6 +146,28 @@ namespace MyEthBook.Client.Controllers
 
             return user.Address;
         }
+
+        public bool InitUser()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            user.Init = true;
+            UserManager.Update(user);
+
+            return true;
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public JsonResult GetOwnerAddress(string refLink)
+        {
+            var context = new ApplicationDbContext();
+
+            var refOwner = context.Users.FirstOrDefault(u => u.RefLink == refLink);
+
+            // return refOwner.Address;
+            return Json(new { addr = refOwner.Address });
+        }
+
 
         //
         // POST: /Manage/RemoveLogin

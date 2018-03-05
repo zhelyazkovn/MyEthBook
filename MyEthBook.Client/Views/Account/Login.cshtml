@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Log in";
 }
+
 <div class="page p4" id="p1">
     <li class="icon fa fa-user">
         <span class="title">Log In</span>
@@ -15,10 +16,10 @@
                         @Html.AntiForgeryToken()
                     <p>Please make sure you have MetaMask installed and account imported.</p>
                         <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <input type="hidden" id="mmaddress" name="mmaddress" />
                         <div class="col-md-12">
                             <fieldset>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger validation-summary" })
                                 @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })

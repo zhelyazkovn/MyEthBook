@@ -37,8 +37,6 @@ namespace MyEthBook.Client.Controllers
                 {
                     if (contractService != null)
                     {
-
-                        //TODO: to do new contract returning null is not possible !!!
                         Task<bool> task = contractService.IsUnlocked(user.Address);
                         bool unlocked = Sync(task);
                         if (unlocked)
@@ -49,6 +47,9 @@ namespace MyEthBook.Client.Controllers
                         }
                     }
                 }
+
+                vm.RefLink = user.RefLink;
+                vm.Init = user.Init.HasValue ? user.Init.Value : false;
             }
 
             return  View(vm);

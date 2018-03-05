@@ -2,6 +2,8 @@
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +19,8 @@ namespace MyEthBook.Client.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        private static Random random = new Random((int)DateTime.Now.Ticks);
 
         public AccountController()
         {
@@ -80,13 +84,29 @@ namespace MyEthBook.Client.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (!string.IsNullOrEmpty(model.MmAddress))
+                    string userId = SignInManager
+                                .AuthenticationManager
+                                .AuthenticationResponseGrant.Identity.GetUserId();
+                    var user = UserManager.FindById(userId);
+                    if (user != null)
                     {
-                        var user = UserManager.FindById(User.Identity.GetUserId());
-                        if (user != null)
+                        if (!string.IsNullOrEmpty(model.MmAddress) || string.IsNullOrEmpty(user.RefLink))
                         {
-                            user.Address = model.MmAddress;
-                            await UserManager.UpdateAsync(user);
+
+                            if (string.IsNullOrEmpty(user.Address))
+                            {
+                                user.Address = model.MmAddress;
+                                if (string.IsNullOrEmpty(user.RefLink))
+                                {
+                                    user.RefLink = RandomString(20, user.Email);
+                                }
+                                await UserManager.UpdateAsync(user);
+                            }
+                            else if(user.Address != model.MmAddress)
+                            {
+                                ModelState.AddModelError("", "You account has already assigned different address: " + user.Address + ". Switch accounts in MetaMask to continue.");
+                                return View(model);
+                            }
                         }
                     }
                     return RedirectToLocal(returnUrl);
@@ -149,6 +169,10 @@ namespace MyEthBook.Client.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -161,9 +185,6 @@ namespace MyEthBook.Client.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
-                //TODO: !!!  INIT USER in contract !!!
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -173,6 +194,10 @@ namespace MyEthBook.Client.Controllers
                     if (user != null)
                     {
                         user.Address = model.MmAddress;
+                        if (string.IsNullOrEmpty(user.RefLink))
+                        {
+                            user.RefLink = RandomString(20, user.Email);
+                        }
                         await UserManager.UpdateAsync(user);
                     }
 
@@ -498,6 +523,14 @@ namespace MyEthBook.Client.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+        }
+
+        private static string RandomString(int length, string email)
+        {
+            string pool = "abcdefghijklmnopqrstuvwxyz0123456789" + email.Replace("@","").Replace(".","");
+            var chars = Enumerable.Range(0, length)
+                .Select(x => pool[random.Next(0, pool.Length)]);
+            return new string(chars.ToArray());
         }
         #endregion
     }

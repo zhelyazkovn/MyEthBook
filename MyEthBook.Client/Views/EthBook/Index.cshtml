@@ -9,22 +9,69 @@
 <style type="text/css">
     .white-popup {
         position: relative;
-        background:white; /*#7587bc;*/
+        background: white; /*#7587bc;*/
         padding: 20px;
         width: auto;
-        max-width: 500px;
+        max-width: 550px;
         margin: 20px auto;
     }
+
+    .fa-trash-o:before {
+        content: "\f014";
+        font-family: FontAwesome;
+        left: -5px;
+        color: white;
+    }
+
+    .fa-pencil-square:before {
+        content: "\f14b";
+        font-family: FontAwesome;
+        left: -5px;
+        color: white;
+    }
+
+    .table-striped > tbody > tr:nth-child(odd) > td {
+        background-color: transparent;
+    }
+
+    /*#save-edit-addr:hover {
+        color: #63adcc !important;
+    }*/
+
+    #edit-address-popup-form {
+        background-image: url(../img/home-bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #addr-list {
+        font-size: 0.9em;
+    }
+
+    .init-user {
+        text-transform: none !important;
+    }
+
+        .init-user a {
+            color: white !important;
+            text-decoration: underline !important;
+        }
 </style>
 
 
 <div id="edit-address-popup-form" data-index class="white-popup mfp-hide">
-    <input type="text" name="name" id="edit-name-text" placeholder="name" />
-    <input type="text" name="address" id="edit-address-text" placeholder="address" />
-    <input type="hidden" name="index" id="edit-index-text" />
-    <input type="submit" value="Save" id="save-edit-addr" />
-    <br />
-    <a id="trans-result-check" target="_blank"></a>
+
+    <div class="col-md-12">
+        <fieldset id="p4">
+            <input type="text" name="name" id="edit-name-text" placeholder="name" />
+            <input type="text" name="address" id="edit-address-text" placeholder="address" />
+            <input type="hidden" name="index" id="edit-index-text" />
+            <button type="submit" value="Save" id="save-edit-addr" class="btn">Save</button>
+            <br />
+            <a id="trans-result-check" target="_blank"></a>
+        </fieldset>
+    </div>
+
 </div>
 
 <div id="transaction-popup" data-index class="white-popup mfp-hide">
@@ -35,32 +82,51 @@
         <span class="title">My EthBook</span>
         <div class="container">
             <div class="row">
+                <input type="hidden" id="refLink" value="@Model.RefLink" />
                 @if (Model.UserUnlocked)
                 {
                     <div class="col-md-6" style="font-size:20px !important;text-align:left;">
-                        <table>
+                        <table id="addr-list" class="table table-striped" cellspacing="0">
                             @foreach (var ca in Model.ContactAddresses)
                             {
-                                <tr>
-                                    <td class="ca-name">@ca.Name</td>
-                                    <td class="ca-addr">@ca.Address</td>
-                                    <td>
-                                        <a href="#" class="delete-address-contact" data-index="@counter">Delete</a>
-
-                                        <a href="#edit-address-popup-form" class="open-popup-link edit-address-contact" data-index="@counter">Edit</a>
-
-                                    </td>
-                                </tr>
+                                if (!string.IsNullOrEmpty(ca.Name) && ca.Address != "0x0000000000000000000000000000000000000000") // deleted data
+                                {
+                                    <tr>
+                                        <td class="ca-name">@ca.Name</td>
+                                        <td class="ca-addr">@ca.Address</td>
+                                        <td>
+                                            <a href="#edit-address-popup-form" class="open-popup-link edit-address-contact" data-index="@counter"><span class="fa-pencil-square"></span></a>
+                                            <a href="#" class="delete-address-contact" data-index="@counter"> <span class="fa-trash-o"></span></a>
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td class="ca-name">Empty</td>
+                                        <td class="ca-addr"></td>
+                                        <td>
+                                            <a href="#edit-address-popup-form" class="open-popup-link edit-address-contact" data-index="@counter"><span class="fa-pencil-square"></span></a>
+                                            <a href="#" class="delete-address-contact" data-index="@counter"> <span class="fa-trash-o"></span></a>
+                                        </td>
+                                    </tr>
+                                }
                                 counter++;
                             }
                         </table>
                     </div>
-                    <div class="col-md-6" style="font-size:20px !important;background-color:white;">
+                    <div class="col-md-6" style="font-size:20px !important;background-color:transparent !important;">
                         <p style="margin: 20px 0% 20px 0%;">
-                            <input type="hidden" id="mmaddress" name="mmaddress" />
-                            <input type="text" name="name" id="name" placeholder="name" />
-                            <input type="text" name="address" id="address" placeholder="address" />
-                            <input type="submit" id="add-addr" />
+
+                            @*<input type="submit" value="Add" id="add-addr" />*@
+                            <div class="col-md-12">
+                                <fieldset id="p4">
+                                    <input type="hidden" id="mmaddress" name="mmaddress" />
+                                    <input type="text" name="name" id="name" placeholder="name" />
+                                    <input type="text" name="address" id="address" placeholder="address" />
+                                    <button type="submit" value="Add" id="add-addr" class="btn">Add</button>
+                                </fieldset>
+                            </div>
                             <br />
                             <a id="result-check" target="_blank"></a>
                         </p>
@@ -71,8 +137,28 @@
                     <p>Please send 0.005eth to unlock your account first:</p>
                     <p style="margin: 20px 0% 20px 0%;">
 
-                        <input type="submit" id="unlock-account" value="Send ether" />
-                        <a id="result-check-unlock" target="_blank"></a>
+                        @*<input type="submit" id="unlock-account" value="Send ether" />*@
+                        <div class="col-md-12">
+                            <fieldset id="p4">
+                                <button type="submit" value="Upload" id="unlock-account" class="btn"><i class="fa fa-cloud-upload"></i> Send Ether</button>
+                                <span class="init-user">
+                                    <br />
+                                    @if (Model.Init)
+                                    {
+                                        <text>
+                                            or wait for at least 2 friends to register under your referal link.
+                                        </text>
+                                    }
+                                    else
+                                    {
+                                        <text>
+                                            or <a href="#" id="init-user"> INIT </a> for referal link and bring at least 2 friends.
+                                        </text>
+                                    }
+                                </span>
+                            </fieldset>
+                        </div>
+                        <span><a id="result-check-unlock" target="_blank"></a></span>
                     </p>
                 }
 
@@ -98,10 +184,9 @@
 
             console.log(addr);
 
-            const documentRegistryContractAddress = '0x9c3431612364Eb8f6Fe7AD91D205F014BF0349aA';//0x52470Ae8f47cA2C67e8aAfAc1824c7460Eb41a22,0x181976bb53bce865a3e7f9f2a22cb550019849bf, '0xdd6e8a55ef29b4a4dd9a0cf3259afbd0ef4c5755';
+            const documentRegistryContractAddress = '0x9c3431612364Eb8f6Fe7AD91D205F014BF0349aA';
             const documentRegistryContractABI =
                 [{ "constant": true, "inputs": [], "name": "unlocked", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_owner", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_unlockPrice", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "addr", "type": "address" }], "name": "getContact", "outputs": [{ "name": "", "type": "bytes32" }, { "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "isUnlocked", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getMyBookCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getTotalCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getTotalInvitedCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "refOwner", "type": "address" }], "name": "getTotalInvitedAndAcceptedCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_minRefCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getRefferals", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "newPrice", "type": "uint256" }], "name": "changeUnlockPrice", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "newMinRefCount", "type": "uint256" }], "name": "changeMinRefCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "refLink", "type": "bytes32" }], "name": "initUser", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "email", "type": "string" }], "name": "inviteFriend", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "unlockUser", "outputs": [{ "name": "", "type": "bool" }], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }], "name": "transferOwner", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "refOwner", "type": "address" }, { "name": "refLink", "type": "bytes32" }, { "name": "email", "type": "string" }], "name": "acceptInvitation", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "addContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }, { "name": "amount", "type": "uint256" }], "name": "payPraize", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "constant": false, "inputs": [{ "name": "index", "type": "uint256" }], "name": "deleteContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "editContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
-            // [{ "constant": false, "inputs": [{ "name": "newPrice", "type": "uint256" }], "name": "changeUnlockPrice", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "email", "type": "string" }], "name": "inviteFriend", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "addContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "isUnlocked", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getTotalInvitedCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_minRefCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }], "name": "transferOwner", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "addr", "type": "address" }], "name": "getContact", "outputs": [{ "name": "", "type": "bytes32" }, { "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "refOwner", "type": "address" }, { "name": "refLink", "type": "bytes32" }, { "name": "email", "type": "string" }], "name": "acceptInvitation", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "getTotalCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "unlockUser", "outputs": [{ "name": "", "type": "bool" }], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [], "name": "unlocked", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }, { "name": "amount", "type": "uint256" }], "name": "payPraize", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "_owner", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "index", "type": "uint256" }], "name": "deleteContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getRefferals", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "newMinRefCount", "type": "uint256" }], "name": "changeMinRefCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "refLink", "type": "bytes32" }], "name": "initUser", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "refOwner", "type": "address" }], "name": "getTotalInvitedAndAcceptedCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_unlockPrice", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getMyBookCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "editContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }];
             let contract = web3.eth.contract(documentRegistryContractABI).at(documentRegistryContractAddress);
 
             contract.isUnlocked(addr, function (err, result, r1, r2, r3) {
@@ -142,6 +227,7 @@
                         if (result) {
                             $('#result-check').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
                             $('#result-check').text('Check Transaction');
+                            $('#result-check').css('color', 'white');
                         }
                     });
                 }
@@ -194,7 +280,10 @@
                         console.log("edited");
                         if (result) {
                             $('#trans-result-check').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
-                            $('#trans-result-check').text('Check Transaction'); // TODO: make transaction hash as POPUP much nicer!!!!
+                            $('#trans-result-check').text('Check Transaction');
+                            $('#trans-result-check').css('color', 'white');
+
+
                         }
                     });
                 }
@@ -227,6 +316,7 @@
                         if (result) {
                             $('#result-check-unlock').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
                             $('#result-check-unlock').text('Check Transaction');
+                            //$('#result-check-unlock').css('font-size', '0.8em !Important;');
                             $('#result-check-unlock').css('color', 'white');
                         }
                     });
@@ -262,6 +352,7 @@
                         if (result) {
                             $('#result-check').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
                             $('#result-check').text('Check Transaction');
+                            $('#result-check').css('color', 'white');
                         }
                     });
                 }
@@ -272,6 +363,43 @@
                 type: 'inline',
                 midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
             });
+
+            //init
+            $("#init-user").on("click", function () {
+                let refLink = $("#refLink").val();
+                //good practice: first do "call" and then sendTransaction in order to "test the waters", because transactions are expensive
+                let result = contract.initUser.call(refLink, function (err, result, r1, r2, r3) {
+                    if (err) {
+                        alert('err');
+                    }
+                });
+
+                let txHash = contract.initUser(refLink, function (err, result, r1, r2, r3) {
+                    if (err) {
+                        console.log("ERROR");
+                    }
+                    console.log(err);
+                    console.log(result);
+                    console.log(r1);
+                    console.log(r2);
+                    console.log(r3);
+                    if (result) {
+                        $('#result-check-unlock').attr('href', 'https://ropsten.etherscan.io/tx/' + result);
+                        $('#result-check-unlock').text('Check Transaction');
+                        $('#result-check-unlock').css('color', 'white');
+
+                        //ajax call to update init
+                        $.ajax({
+                            url: "/manage/inituser",
+                            cache: false,
+                            success: function (res) {
+                                console.log("init done");
+                            }
+                        });
+                    }
+                });
+            });
+
         });
     </script>
 }

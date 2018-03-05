@@ -13,7 +13,11 @@ namespace MyEthBook.Client.Models
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
         public string Address { get; internal set; }
+        public string RefLink { get; internal set; }
         public string Avatar { get; internal set; }
+        public bool Init { get; internal set; }
+        public bool Unlocked { get; internal set; }
+        public int RefCount { get; internal set; }
     }
 
     public class ManageLoginsViewModel

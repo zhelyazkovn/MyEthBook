@@ -15,6 +15,8 @@ namespace MyEthBook.Client.Models
         public string Address { get; set; }
         public string Avatar { get;  set; }
         public bool? Unlocked { get;  set; }
+        public bool? Init { get;  set; }
+        public string RefLink { get;  set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
