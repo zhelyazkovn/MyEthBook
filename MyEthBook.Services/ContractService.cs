@@ -36,6 +36,13 @@ namespace MyEthBook.Services
             return count;
         }
 
+        public Task<int> GetTotalInvitedCount(string address)
+        {
+            var getTotalInvitedCount = contract.GetFunction("getTotalInvitedCount");
+            var count = getTotalInvitedCount.CallAsync<int>();
+            return count;
+        }
+
         public Task<bool?> AddContact(string name,string address)
         {
             var getMyBookCountFunction = contract.GetFunction("addContact"); //0x2b0a1ced76081189d4faf7342a940a305a61d9e0

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using Ipfs.Api;
 using Microsoft.AspNet.Identity;
@@ -17,7 +19,7 @@ namespace MyEthBook.Client.Controllers
     public class ManageController : BaseController
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        //private ApplicationUserManager _userManager;
         private const string defaultAvatar = "QmaJeAV1f4XjhG7ZeLz6EGRuq4hSNHtrZ85CqnudxAu35g";
 
         public ManageController()
@@ -42,17 +44,17 @@ namespace MyEthBook.Client.Controllers
             }
         }
 
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
+        //public ApplicationUserManager UserManager
+        //{
+        //    get
+        //    {
+        //        return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    }
+        //    private set
+        //    {
+        //        _userManager = value;
+        //    }
+        //}
 
         //
         // GET: /Manage/Index
@@ -73,6 +75,7 @@ namespace MyEthBook.Client.Controllers
             ContractService contractService = GetContactService();
 
             int refCount = Sync(contractService.GetTotalInvitedAndAcceptedCount(user.Address));
+            int acceptedCount = Sync(contractService.GetTotalInvitedCount(user.Address));
 
             var model = new IndexViewModel
             {
@@ -86,7 +89,8 @@ namespace MyEthBook.Client.Controllers
                 RefLink = user.RefLink,
                 Init = user.Init.HasValue ? user.Init.Value : false,
                 Unlocked = user.Unlocked.HasValue ? user.Unlocked.Value : false,
-                RefCount = refCount
+                RefCount = refCount,
+                AcceptedCount = acceptedCount
             };
             return View(model);
         }
@@ -166,6 +170,43 @@ namespace MyEthBook.Client.Controllers
 
             // return refOwner.Address;
             return Json(new { addr = refOwner.Address });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult SendInvitation(string email)
+        {
+            //var smtpClient = new SmtpClient();
+            //smtpClient.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
+            //var emailPickupDirectory = HostingEnvironment.MapPath("~/EmailPickup");
+            //if (!Directory.Exists(emailPickupDirectory))
+            //{
+            //    Directory.CreateDirectory(emailPickupDirectory);
+            //}
+            //smtpClient.PickupDirectoryLocation = emailPickupDirectory;
+
+           var user = UserManager.FindById(User.Identity.GetUserId());
+
+            //MailMessage message = new MailMessage(user.Email, email,"Invitation To MyEthBook", 
+            //    "Please join <a href='"+ Request.Url.Host + "/Account/Register?reflink=" + user.RefLink + "'>MyEthBook</a>");
+
+            //SmtpClient client = new SmtpClient("localhost");
+            //client.Send(message);
+
+
+
+            MailMessage mailMessage = new MailMessage();
+            MailAddress fromAddress = new MailAddress(user.Email);
+            mailMessage.From = fromAddress;
+            mailMessage.To.Add(email);
+            mailMessage.Body = "Please join <a href='" + Request.Url.Host + "/Account/Register?reflink=" + user.RefLink + "'>MyEthBook</a>";
+            mailMessage.IsBodyHtml = true;
+            mailMessage.Subject = "Invitation To MyEthBook";
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Host = "localhost";
+            smtpClient.Send(mailMessage);
+
+            return RedirectToAction("Index", "Manage");
         }
 
 

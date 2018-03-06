@@ -18,6 +18,8 @@ namespace MyEthBook.Client.Models
         public bool Init { get; internal set; }
         public bool Unlocked { get; internal set; }
         public int RefCount { get; internal set; }
+        public int AcceptedCount { get; internal set; }
+        
     }
 
     public class ManageLoginsViewModel

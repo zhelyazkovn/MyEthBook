@@ -15,13 +15,13 @@ namespace MyEthBook.Client.Controllers
         internal ApplicationUserManager _userManager;
         internal ContractService _contractService;
 
-        internal ApplicationUserManager UserManager
+        public ApplicationUserManager UserManager
         {
             get
             {
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
-            private set
+            internal set
             {
                 _userManager = value;
             }
