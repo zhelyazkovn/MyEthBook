@@ -30,36 +30,36 @@ You have Internet connection and MetaMask installed.
 
 <h2>Technical Details</h2>
 <p>
-<ol>
+<ul>
 <li>ASP.NET MVC 5.2.3; .NET Framework 4.7.1</li>
 <li>Nethereum - Web3 for .NET</li>
 <li>Remix IDE for smart contract developing; Visual Studio 2017 for Client developing</li>
 <li>MetaMask</li>
 <li>IPFS</li>
 <li>Unit testing with Truffle</li>
-</ol>
+</ul>
 </p>
 
 <h2>Running the tests</h2>
 <p>
-<ol>
+<ul>
 <li>On separate window start testrpc</li>
 <li>Open new command window and navigate to /MyEthBook.Truffle/test/</li>
 <li>Type truffle test and hit ENTER</li>
-</ol>
+</ul>
 </p>
 
 <h2>Authors</h2>
 <p>
-<ol>
+<ul>
 <li>Nikolay Zhelyazkov</li>
-</ol>
+</ul>
 </p>
 
 
 <h2>Acknowledgments</h2>
 <p>
-<ol>
+<ul>
 <li>Special thanks to SofUni team!</li>
-</ol>
+</ul>
 </p>
