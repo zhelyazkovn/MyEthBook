@@ -825,3 +825,49 @@ input[type="file"] {
         margin: 5px 0;
         color: #ffadad;
     }
+
+.white-popup {
+    position: relative;
+    background: white; /*#7587bc;*/
+    padding: 20px;
+    width: auto;
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+.fa-trash-o:before {
+    content: "\f014";
+    font-family: FontAwesome;
+    left: -5px;
+    color: white;
+}
+
+.fa-pencil-square:before {
+    content: "\f14b";
+    font-family: FontAwesome;
+    left: -5px;
+    color: white;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+    background-color: transparent;
+}
+
+#edit-address-popup-form {
+    background-image: url(../img/home-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#addr-list {
+    font-size: 0.9em;
+}
+
+.init-user {
+    text-transform: none !important;
+}
+
+    .init-user a {
+        color: white !important;
+        text-decoration: underline !important;
+    }

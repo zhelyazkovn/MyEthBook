@@ -2,11 +2,8 @@
 using MyEthBook.Client.Models;
 using MyEthBook.Services;
 using MyEthBook.Services.BookModels;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MyEthBook.Client.Controllers

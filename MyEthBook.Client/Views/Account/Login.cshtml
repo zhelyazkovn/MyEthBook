@@ -9,12 +9,11 @@
         <span class="title">Log In</span>
         <div class="container">
             <div class="row">
-
                 <div class="col-md-6" style="font-size:20px !important;">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "contact", @class = "form-horizontal", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                    <p>Please make sure you have MetaMask installed and account imported.</p>
+                        <p>Please make sure you have MetaMask installed and account imported.</p>
                         <hr />
                         <input type="hidden" id="mmaddress" name="mmaddress" />
                         <div class="col-md-12">
@@ -38,17 +37,15 @@
                         </div>
                         <div class="col-md-12">
                             <fieldset>
-                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                    @Html.LabelFor(m => m.RememberMe)
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
                             </fieldset>
                         </div>
                         <div class="col-md-12">
                             <fieldset id="p4">
-                                <button type="submit" value="Log in" id="form-submit" class="btn" >Log In</button>
+                                <button type="submit" value="Log in" id="form-submit" class="btn">Log In</button>
                             </fieldset>
                         </div>
-                        
-
                     }
                 </div>
 
@@ -65,10 +62,6 @@
                             @Html.ActionLink("Forgot your password?", "ForgotPassword")
                         </p>
                     </div>
-
-                    @*<div class="right-info">
-            <p> @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })</p>
-        </div>*@
                 </div>
             </div>
         </div>
@@ -79,22 +72,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            if (typeof web3 == 'undefined') {
-                alert("Please Install MetaMask if you want to use the DApp.");
-            }
-            console.log(web3.eth.accounts[0]);
-            $("#mmaddress").val(web3.eth.accounts[0]);
-            //if (!web3.eth.accounts[0]) {
-            //    $("#mmaddress").val("0xdd870fa1b7c4700f2bd7f44238821c26f7392148");
-            //}
-            console.log(typeof web3);
-        });
-    </script>
+    @Scripts.Render("~/bundles/login")
 }
-
-
-<style type="text/css">
-</style>

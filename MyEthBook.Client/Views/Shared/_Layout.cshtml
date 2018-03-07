@@ -6,135 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/kinetic")
-    @*@Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/jquery")*@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    @*<link rel="stylesheet" href="Content/bootstrap.min.css">*@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    @*<link rel="stylesheet" href="Content/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="Content/fontAwesome.css">
-        <link rel="stylesheet" href="Content/tooplate-style.css">*@
-
-    @*<script src="Scripts/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>*@
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-    @*<script src="Scripts/vendor/bootstrap.min.js"></script>*@
-
-    @*<script src="Scripts/plugins.js"></script>*@
-    @*<script src="Scripts/main.js"></script>*@
     @Scripts.Render("~/bundles/sha256")
     @Scripts.Render("~/bundles/kinetic")
+    @Scripts.Render("~/bundles/contract")
+    <script type="text/javascript">
+        const documentRegistryContractAddress = '0x9c3431612364Eb8f6Fe7AD91D205F014BF0349aA';
+        const documentRegistryContractABI = [{ "constant": true, "inputs": [], "name": "unlocked", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_owner", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_unlockPrice", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "addr", "type": "address" }], "name": "getContact", "outputs": [{ "name": "", "type": "bytes32" }, { "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "isUnlocked", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getMyBookCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getTotalCount", "outputs": [{ "name": "count", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getTotalInvitedCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "refOwner", "type": "address" }], "name": "getTotalInvitedAndAcceptedCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_minRefCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "addr", "type": "address" }], "name": "getRefferals", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "newPrice", "type": "uint256" }], "name": "changeUnlockPrice", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "newMinRefCount", "type": "uint256" }], "name": "changeMinRefCount", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "refLink", "type": "bytes32" }], "name": "initUser", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "email", "type": "string" }], "name": "inviteFriend", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "unlockUser", "outputs": [{ "name": "", "type": "bool" }], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }], "name": "transferOwner", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "refOwner", "type": "address" }, { "name": "refLink", "type": "bytes32" }, { "name": "email", "type": "string" }], "name": "acceptInvitation", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "addContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }, { "name": "amount", "type": "uint256" }], "name": "payPraize", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "constant": false, "inputs": [{ "name": "index", "type": "uint256" }], "name": "deleteContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "index", "type": "uint256" }, { "name": "name", "type": "bytes32" }, { "name": "addr", "type": "address" }], "name": "editContact", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
 
+        createContract(documentRegistryContractAddress, documentRegistryContractABI);
+    </script>
 </head>
+
 <body>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="ct" id="t1">
+        <div class="ct" id="t2">
+            <div class="ct" id="t3">
+                <div class="ct" id="t4">
+                    <section>
+                        <ul>
+                            <a href="/"><li class="icon fa fa-home" id="uno"></li></a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a href="/ethbook"><li class="icon fa fa-heart"></li></a>
+                                <a href="/manage"><li class="icon fa fa-user"></li></a>
+                            }
 
-
-        <div class="ct" id="t1">
-            <div class="ct" id="t2">
-                <div class="ct" id="t3">
-                    <div class="ct" id="t4">
-                        <section>
-                            <ul>
-                                <a href="/"><li class="icon fa fa-home" id="uno"></li></a>
-                                @if (User.Identity.IsAuthenticated)
+                            @if (Request.IsAuthenticated)
+                            {
+                                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right no-float" }))
                                 {
-                                    <a href="/ethbook"><li class="icon fa fa-heart"></li></a>
-                                    <a href="/manage"><li class="icon fa fa-user"></li></a>
-                                    @*<a href="/ethbook"><li class="icon fa fa-music"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-glass"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-search"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-envelope"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-heart"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-star"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-film"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-remove"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-close"></li></a>
-                                        <a href="/ethbook"><li class="icon fa fa-times"></li></a>*@
+                                    @Html.AntiForgeryToken()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()"><li class="icon fa fa-remove" id="tres"></li></a>
                                 }
+                            }
+                            else
+                            {
+                                <a href="#">
+                                    <li>@Html.ActionLink(" ", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "icon fa fa-envelope-o" })</li>
+                                </a>
+                                <a href="#">  <li>@Html.ActionLink(" ", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "icon fa fa-user" })</li></a>
 
-                                @if (Request.IsAuthenticated)
-                                {
-                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right no-float" }))
-                                    {
-                                        @Html.AntiForgeryToken()
+                            }
+                        </ul>
 
-                                        @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                        @RenderSection("styles", required: false)
+                        @RenderBody()
 
-                                        <a href="javascript:document.getElementById('logoutForm').submit()"><li class="icon fa fa-remove" id="tres"></li></a>
-                                    }
-                                }
-                                else
-                                {
-                                    <a href="#">
-                                        <li>@Html.ActionLink(" ", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "icon fa fa-envelope-o" })</li>
-                                    </a>
-                                    <a href="#">  <li>@Html.ActionLink(" ", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "icon fa fa-user" })</li></a>
-
-                                }
-                            </ul>
-                            @RenderBody()
-
-
-                            <p class="credit">
-                                Copyright &copy; 2018 MyEthBook
-
-                            </p>
-                        </section>
-                    </div>
+                        <p class="credit">
+                            Copyright &copy; 2018 MyEthBook
+                        </p>
+                    </section>
                 </div>
             </div>
         </div>
+    </div>
 
-
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        @*<script>
-                (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-                function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-                e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-                e.src='//www.google-analytics.com/analytics.js';
-                r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-                ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-            </script>*@
-        @*<div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        @Html.ActionLink("MyEthBook", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <li>@Html.ActionLink("My EthBook", "Index", "EthBook")</li>
-                            }
-                        </ul>
-                        @Html.Partial("_LoginPartial")
-                    </div>
-                </div>
-            </div>
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - MyEthBook</p>
-                </footer>
-            </div>*@
-
-
-        @RenderSection("scripts", required: false)
-    </body>
+    @RenderSection("scripts", required: false)
+</body>
 </html>

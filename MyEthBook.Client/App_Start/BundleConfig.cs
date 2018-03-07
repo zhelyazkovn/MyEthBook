@@ -32,6 +32,22 @@ namespace MyEthBook.Client
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/popup").Include(
+                      "~/Scripts/jquery.magnific-popup.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ethbook").Include(
+                        "~/Scripts/ethbook.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/my-account").Include(
+                        "~/Scripts/my-account.js"));
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                        "~/Scripts/login.js"));
+            bundles.Add(new ScriptBundle("~/bundles/register").Include(
+                        "~/Scripts/register.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/contract").Include(
+                        "~/Scripts/contract.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
@@ -40,12 +56,17 @@ namespace MyEthBook.Client
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/popup").Include(
+                      "~/Content/magnific-popup.css"));
+
             bundles.Add(new StyleBundle("~/Content/kinetic").Include(
                      "~/Content/bootstrap.min.css",
                      "~/Content/bootstrap-theme.min.css",
                      "~/Content/fontAwesome.css",
                      "~/Content/tooplate-style.css"
                      ));
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

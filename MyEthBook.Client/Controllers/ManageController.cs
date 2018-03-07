@@ -1,10 +1,9 @@
-﻿using System;
+﻿using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Hosting;
 using System.Web.Mvc;
 using Ipfs.Api;
 using Microsoft.AspNet.Identity;
@@ -19,11 +18,11 @@ namespace MyEthBook.Client.Controllers
     public class ManageController : BaseController
     {
         private ApplicationSignInManager _signInManager;
-        //private ApplicationUserManager _userManager;
-        private const string defaultAvatar = "QmaJeAV1f4XjhG7ZeLz6EGRuq4hSNHtrZ85CqnudxAu35g";
+        private string defaultAvatar;
 
         public ManageController()
         {
+            defaultAvatar = ConfigurationManager.AppSettings["DefaultIpfsAvatar"];
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -43,18 +42,6 @@ namespace MyEthBook.Client.Controllers
                 _signInManager = value;
             }
         }
-
-        //public ApplicationUserManager UserManager
-        //{
-        //    get
-        //    {
-        //        return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-        //    }
-        //    private set
-        //    {
-        //        _userManager = value;
-        //    }
-        //}
 
         //
         // GET: /Manage/Index
@@ -105,18 +92,16 @@ namespace MyEthBook.Client.Controllers
                 avatar = Request.Files["avatar"];
             }
 
-            //if (avatar != null)
-            //{
             avatar.InputStream.Read(new byte[avatar.ContentLength], 0, avatar.ContentLength);
 
-            // var file = await ipfs.FileSystem.AddAsync(avatar.InputStream, avatar.FileName);
             var fileName = Path.GetFileName(avatar.FileName);
             var path = Path.Combine(Server.MapPath("~/tmp"), fileName);
             avatar.SaveAs(path);
 
             if (!string.IsNullOrEmpty(path))
             {
-                var ipfs = new IpfsClient("http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/");
+                var ipfsService = new IPFSService();
+                var ipfs = ipfsService.GetIpfsClient();
                 var file = await ipfs.FileSystem.AddFileAsync(path);
 
                 var userTmp = await UserManager.FindByIdAsync(User.Identity.GetUserId());
@@ -124,8 +109,6 @@ namespace MyEthBook.Client.Controllers
                 await UserManager.UpdateAsync(userTmp);
             }
 
-            // var file1 = await ipfs.FileSystem.AddFileAsync(avatar.FileName);
-            // }
             var userId = User.Identity.GetUserId();
             var user = UserManager.FindById(userId);
 
@@ -168,7 +151,6 @@ namespace MyEthBook.Client.Controllers
 
             var refOwner = context.Users.FirstOrDefault(u => u.RefLink == refLink);
 
-            // return refOwner.Address;
             return Json(new { addr = refOwner.Address });
         }
 
@@ -176,25 +158,7 @@ namespace MyEthBook.Client.Controllers
         [AllowAnonymous]
         public ActionResult SendInvitation(string email)
         {
-            //var smtpClient = new SmtpClient();
-            //smtpClient.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-            //var emailPickupDirectory = HostingEnvironment.MapPath("~/EmailPickup");
-            //if (!Directory.Exists(emailPickupDirectory))
-            //{
-            //    Directory.CreateDirectory(emailPickupDirectory);
-            //}
-            //smtpClient.PickupDirectoryLocation = emailPickupDirectory;
-
-           var user = UserManager.FindById(User.Identity.GetUserId());
-
-            //MailMessage message = new MailMessage(user.Email, email,"Invitation To MyEthBook", 
-            //    "Please join <a href='"+ Request.Url.Host + "/Account/Register?reflink=" + user.RefLink + "'>MyEthBook</a>");
-
-            //SmtpClient client = new SmtpClient("localhost");
-            //client.Send(message);
-
-
-
+            var user = UserManager.FindById(User.Identity.GetUserId());
             MailMessage mailMessage = new MailMessage();
             MailAddress fromAddress = new MailAddress(user.Email);
             mailMessage.From = fromAddress;
