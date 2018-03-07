@@ -4,8 +4,9 @@
 
 <p>It keeps important and frequently used addresses in secure manner, on blockchain, that could be easilly accessed from the DApp. Example: two and more friends participate in ICO with common budget and the one that succeeds has to transfer the coins to the others. Use MyEthBook for frequently used addresses - you don't remember the phone numbers of all your friends, do you? The final goal will be Ethereum book that acts as wallet, book, and portfolio -> will be combination between Blockfolio + My Ether Wallet + Address Book = MyEthManager (online banking for Ethereum tokens)</p>
 
+<h2>Project Architecture</h2>
 <p>
-<img src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/diagram.png" />
+<img style="max-width:70% !important;" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/diagram.png" />
 
 </p>
 
