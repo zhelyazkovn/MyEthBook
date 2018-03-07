@@ -6,7 +6,7 @@
 
 <h2>Project Architecture</h2>
 <p>
-<img style="max-width:70% !important;" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/diagram.png" />
+<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/diagram.png" />
 
 </p>
 
