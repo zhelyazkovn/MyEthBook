@@ -49,6 +49,22 @@ You have Internet connection and MetaMask installed.
 </ul>
 </p>
 
+<h2>Screenshots</h2>
+<p>
+<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/home.png" />
+
+<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/account.png" />
+
+<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/book.png" />
+
+<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/reg.png" />
+
+<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/edit.png" />
+
+</p>
+
+
+
 <h2>Authors</h2>
 <p>
 <ul>
@@ -61,5 +77,13 @@ You have Internet connection and MetaMask installed.
 <p>
 <ul>
 <li>Special thanks to SofUni team!</li>
+</ul>
+</p>
+
+
+<h2>License</h2>
+<p>
+<ul>
+<li>MIT</li>
 </ul>
 </p>
