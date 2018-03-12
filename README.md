@@ -40,6 +40,18 @@ You have Internet connection and MetaMask installed.
 </ul>
 </p>
 
+<h2>Starting the project</h2>
+<p>
+<ul>
+<li>Clone the project locally and open it with Visual Studio (2017 preferred)</li>
+<li>Restore NuGet Packages</li>
+<li>*Optional: if errors with missing project files appear just include the files in the project - they are all in the repo. (MyEthBook.Services/Utils folder and MyEthBook.Services/IPFSService.cs file stays as not included in the project for unknown reason.)</li>
+<li>Set MyEthBook.Client project as startup project</li>
+<li>In Visual Studio open Package Manager Console, select MyEthBook.Client project from the dropdown above and execute "Update-Database"</li>
+<li>Start the project from VS with your favourite browser</li>
+</ul>
+</p>
+
 <h2>Running the tests</h2>
 <p>
 <ul>
@@ -51,27 +63,21 @@ You have Internet connection and MetaMask installed.
 
 <h2>Screenshots</h2>
 <p>
-<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/home.png" />
-
-<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/account.png" />
-
-<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/book.png" />
-
-<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/reg.png" />
-
-<img style="max-width:70% !important;" width="500" src="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/edit.png" />
-
+<ul>
+<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/home.png">[home.png]</a></li>
+<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/account.png">[account.png]</a></li>
+<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/book.png">[book.png]</a></li>
+<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/reg.png">[reg.png]</a></li>
+<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/edit.png">[edit.png]</a></li>
+</ul>
 </p>
-
-
 
 <h2>Authors</h2>
 <p>
 <ul>
-<li>Nikolay Zhelyazkov</li>
+<li>Nikolay Zhelyazkov - zhelyazkovn@gmail.com</li>
 </ul>
 </p>
-
 
 <h2>Acknowledgments</h2>
 <p>
@@ -79,7 +85,6 @@ You have Internet connection and MetaMask installed.
 <li>Special thanks to SofUni team!</li>
 </ul>
 </p>
-
 
 <h2>License</h2>
 <p>
