@@ -64,11 +64,11 @@ You have Internet connection and MetaMask installed.
 <h2>Screenshots</h2>
 <p>
 <ul>
-<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/home.png">[home.png]</a></li>
-<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/account.png">[account.png]</a></li>
-<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/book.png">[book.png]</a></li>
-<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/reg.png">[reg.png]</a></li>
-<li><a href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/edit.png">[edit.png]</a></li>
+<li><a target="_blank" href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/home.png">[home.png]</a></li>
+<li><a target="_blank"  href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/account.png">[account.png]</a></li>
+<li><a target="_blank"  href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/book.png">[book.png]</a></li>
+<li><a target="_blank"  href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/reg.png">[reg.png]</a></li>
+<li><a target="_blank"  href="https://raw.githubusercontent.com/zhelyazkovn/MyEthBook/master/MyEthBook.Client/img/demo_img/edit.png">[edit.png]</a></li>
 </ul>
 </p>
 
