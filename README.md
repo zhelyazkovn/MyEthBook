@@ -89,7 +89,8 @@ You have Internet connection and MetaMask installed.
 <h2>Acknowledgments</h2>
 <p>
 <ul>
-<li>Special thanks to SofUni team!</li>
+<li>SofUni - https://softuni.bg/</li>
+<li>ACADEMY: SCHOOL OF BLOCKCHAIN - http://www.kingsland.academy/</li>
 </ul>
 </p>
 
