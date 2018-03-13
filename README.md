@@ -82,7 +82,13 @@ You have Internet connection and MetaMask installed.
 <h2>Authors</h2>
 <p>
 <ul>
-<li>Nikolay Zhelyazkov - zhelyazkovn@gmail.com</li>
+<li>Nikolay Zhelyazkov - zhelyazkovn@gmail.com
+	<ul>
+	<li>Email - zhelyazkovn@gmail.com</li>
+	<li>LinkedIn - https://www.linkedin.com/in/nikolay-zhelyazkov-1a70a671/</li>
+	</ul>
+
+</li>
 </ul>
 </p>
 
