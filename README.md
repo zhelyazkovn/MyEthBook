@@ -72,6 +72,13 @@ You have Internet connection and MetaMask installed.
 </ul>
 </p>
 
+<h2>Contract Address</h2>
+<p>
+<ol>
+<li>https://ropsten.etherscan.io/address/0x9c3431612364eb8f6fe7ad91d205f014bf0349aa</li>
+</ol>
+</p>
+
 <h2>Authors</h2>
 <p>
 <ul>
